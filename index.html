@@ -242,29 +242,121 @@ footer{text-align:center;margin-top:2.4rem;font-family:var(--f-hand);color:var(-
 footer .ar{display:block;font-family:var(--f-ar);font-size:1.35rem;color:var(--pink-deep)}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 @media (prefers-reduced-motion:reduce){.spine{transition:none}}
+/* ——— v2 : accueil, organisation, niveaux, assistante ——— */
+.home-hello{text-align:center;font-family:var(--f-hand);font-size:1.25rem;color:var(--ink-soft)}
+.next{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.6rem 1rem;background:var(--pink-soft);border:1.5px dashed var(--pink-deep);border-radius:14px;padding:.8rem 1rem;margin-top:1rem}
+.next b{font-size:1.05rem}
+.next .when2{font-family:var(--f-hand);color:var(--ink-soft);font-size:1.05rem}
+.dash{display:grid;gap:1rem;margin-top:1.2rem}
+.dash-2{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media (max-width:640px){.dash-2{grid-template-columns:1fr}}
+.card2{border:1.5px solid var(--pink-deep);border-radius:16px;padding:1rem 1.1rem;background:var(--paper);min-width:0}
+.card2 > h3{font-family:var(--f-hand);font-weight:400;font-size:1.3rem;color:var(--pink-deep);margin:0 0 .6rem;display:flex;justify-content:space-between;align-items:baseline;gap:.5rem}
+.card2 > h3 button{font-family:var(--f-body);font-size:.8rem;font-weight:700;border:1px solid var(--pink-deep);background:var(--paper);border-radius:2rem;padding:.1rem .6rem;cursor:pointer;color:var(--ink)}
+.goal{display:grid;grid-template-columns:auto 1fr;gap:1rem;align-items:center}
+.ring{width:6.4rem;height:6.4rem}
+.ring text{font-family:var(--f-body)}
+.goal ul{list-style:none;padding:0;margin:0;display:grid;gap:.45rem}
+.goal li{display:flex;justify-content:space-between;gap:.6rem;font-size:.95rem}
+.goal li b{font-variant-numeric:tabular-nums;white-space:nowrap}
+.goal li.ok span{color:var(--ink-soft);text-decoration:line-through}
+.goal-edit{display:grid;grid-template-columns:1fr auto;gap:.4rem .8rem;align-items:center;margin-top:.8rem;font-size:.92rem}
+.goal-edit input{width:4.2rem;border:1.5px solid var(--pink-deep);border-radius:8px;padding:.2rem .4rem;background:var(--paper);text-align:center}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.6rem}
+@media (max-width:640px){.kpis{grid-template-columns:1fr 1fr}}
+.kpi{background:var(--pink-soft);border-radius:12px;padding:.7rem .8rem}
+.kpi b{display:block;font-family:var(--f-title);font-size:2rem;color:var(--pink-deep);line-height:1;font-variant-numeric:tabular-nums}
+.kpi span{font-size:.82rem;color:var(--ink-soft)}
+.mat{display:grid;gap:.7rem}
+.mat > div{display:grid;grid-template-columns:5.5rem 1fr auto;gap:.6rem;align-items:center;font-size:.95rem}
+.mat .bar{margin:0}
+.heat{display:grid;grid-template-columns:repeat(8,1fr);grid-template-rows:repeat(7,auto);grid-auto-flow:column;gap:4px}
+.heat i{aspect-ratio:1;border-radius:4px;background:#f3e6ea}
+.heat .d1{background:var(--pink)}.heat .d2{background:#eeaabf}.heat .d3{background:var(--pink-deep)}
+.heat .today{outline:2px solid var(--ink);outline-offset:1px}
+.heat-legend{display:flex;justify-content:space-between;font-size:.78rem;color:var(--ink-soft);margin-top:.4rem}
+.list2{list-style:none;margin:0;padding:0}
+.list2 li{display:flex;justify-content:space-between;align-items:center;gap:.6rem;padding:.5rem 0;border-bottom:1px dashed var(--pink)}
+.list2 li:last-child{border-bottom:0}
+.list2 .sub2{display:block;font-family:var(--f-hand);color:var(--ink-soft);font-size:.98rem}
+.btn.sm{padding:.3rem .8rem;font-size:.85rem}
+.empty2{color:var(--ink-soft);font-size:.92rem}
+
+/* organisation */
+.org-sec{margin-top:2rem}
+.org-sec:first-child{margin-top:0}
+.org-sec > h2{font-family:var(--f-title);font-weight:700;font-size:1.9rem;color:var(--pink-deep);margin:0 0 .6rem;line-height:1.1}
+.sched{display:grid;gap:.5rem}
+.sched-row{display:grid;grid-template-columns:6rem 1fr 1fr;gap:.5rem;align-items:center}
+.sched-row select,.sched-row input{border:1.5px solid var(--pink-deep);border-radius:8px;padding:.35rem .5rem;background:var(--paper);min-width:0;width:100%}
+@media (max-width:480px){.sched-row{grid-template-columns:1fr 1fr}.sched-row b{grid-column:1/-1}}
+.form.ev{grid-template-columns:1fr auto auto auto}
+.form.rat{grid-template-columns:auto auto auto auto}
+@media (max-width:640px){.form.ev,.form.rat{grid-template-columns:1fr 1fr}}
+.pill2{display:inline-block;font-family:var(--f-hand);font-size:.95rem;background:var(--pink);border-radius:2rem;padding:0 .6rem;margin-left:.3rem}
+.progress-line{display:flex;align-items:center;gap:.7rem;margin:.4rem 0 .8rem;font-size:.92rem}
+.progress-line .bar{flex:1;margin:0}
+
+/* niveaux */
+.lvls{display:flex;gap:.25rem;justify-content:center}
+.lvls i{width:.6rem;height:.6rem;border-radius:50%;border:1.5px solid var(--pink-deep);background:var(--paper)}
+.lvls i.on{background:var(--pink-deep)}
+.levelpick{border:1.5px solid var(--pink-deep);border-radius:16px;background:var(--pink-soft);padding:1rem;margin:.6rem auto 0;max-width:24rem;display:grid;gap:.5rem}
+.levelpick h4{margin:0;text-align:center;font-family:var(--f-title);font-size:1.5rem;color:var(--pink-deep)}
+.levelpick button{display:grid;grid-template-columns:1fr auto;gap:.4rem;align-items:center;text-align:left;border:1.5px solid var(--pink-deep);border-radius:12px;background:var(--paper);padding:.6rem .8rem;cursor:pointer}
+.levelpick button:disabled{opacity:.55;cursor:not-allowed}
+.levelpick button b{font-size:1rem}
+.levelpick button span{font-size:.82rem;color:var(--ink-soft)}
+.q-ar{display:block;font-family:var(--f-ar);direction:rtl;text-align:center;font-size:1.6rem;line-height:1.9;margin-top:.6rem;background:var(--pink-soft);border-radius:12px;padding:.5rem .8rem}
+.choice.ar-choice{font-family:var(--f-ar);font-size:1.45rem;text-align:center;font-weight:400}
+.assoc{display:grid;gap:.6rem;margin-top:1rem}
+.assoc-row{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;align-items:center}
+.assoc-row span{font-weight:700;font-size:.95rem}
+.assoc-row select{border:1.5px solid var(--pink-deep);border-radius:10px;padding:.45rem .5rem;background:var(--paper);min-width:0;width:100%;font-size:.92rem}
+.assoc-row.ok select{border-color:#5aa77b;background:#dff3e6}
+.assoc-row.ko select{background:var(--pink)}
+.assoc-row .fix{grid-column:2;font-size:.85rem;color:#2f7a52}
+@media (max-width:480px){.assoc-row{grid-template-columns:1fr}.assoc-row .fix{grid-column:1}}
+.order{list-style:none;padding:0;margin:1rem 0 0;display:grid;gap:.45rem}
+.order li{display:grid;grid-template-columns:auto 1fr auto auto;gap:.5rem;align-items:center;border:1.5px solid var(--pink-deep);border-radius:12px;padding:.5rem .6rem;background:var(--paper)}
+.order li.ok{background:#dff3e6;border-color:#5aa77b}
+.order li.ko{background:var(--pink)}
+.order .n2{font-weight:800;color:var(--pink-deep)}
+.order button{border:1px solid var(--pink-deep);background:var(--paper);border-radius:8px;width:2rem;height:2rem;cursor:pointer;font-size:1rem}
+.order button:disabled{opacity:.35;cursor:default}
+.redige textarea{width:100%;min-height:7rem;border:1.5px solid var(--pink-deep);border-radius:12px;padding:.7rem;background:var(--paper);margin-top:1rem;resize:vertical}
+.model{margin-top:1rem;border-radius:12px;background:var(--pink-soft);padding:.8rem 1rem}
+.model b{font-family:var(--f-hand);font-weight:400;font-size:1.15rem;color:var(--pink-deep);display:block}
+.model ul{margin:.4rem 0 0;padding-left:1.2rem}
+.self{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.8rem}
+.ai-box{margin-top:.8rem}
+
+/* assistante */
+.ai-intro{background:var(--pink-soft);border-radius:14px;padding:.9rem 1rem;font-size:.95rem}
+.ai-intro b{font-family:var(--f-hand);font-weight:400;color:var(--pink-deep);font-size:1.15rem;display:block;margin-bottom:.2rem}
+.ai-intro ul{margin:.3rem 0 0;padding-left:1.2rem;display:grid;gap:.2rem}
+.ask{display:grid;gap:.6rem;margin-top:1rem}
+.ask textarea{width:100%;min-height:5.5rem;border:1.5px solid var(--pink-deep);border-radius:12px;padding:.7rem;background:var(--paper);resize:vertical}
+.ask-row{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;justify-content:space-between}
+.ask-row select{border:1.5px solid var(--pink-deep);border-radius:2rem;padding:.35rem .7rem;background:var(--paper)}
+.answer{border:1.5px solid var(--pink-deep);border-radius:16px;background:var(--paper);padding:1rem 1.1rem;margin-top:1rem}
+.answer .askq{font-weight:800}
+.answer h4{font-family:var(--f-hand);font-weight:400;font-size:1.15rem;color:var(--pink-deep);margin:.9rem 0 .4rem}
+.cite{border-left:3px solid var(--pink-deep);background:var(--pink-soft);border-radius:0 10px 10px 0;padding:.5rem .8rem;margin:.45rem 0}
+.cite .ar{display:block;font-family:var(--f-ar);direction:rtl;text-align:right;font-size:1.3rem;line-height:1.8}
+.cite q{font-style:italic;quotes:"« " " »"}
+.cite .lab{display:block;font-family:var(--f-hand);color:var(--pink-deep);font-size:.98rem;margin-top:.2rem}
+.expl p{margin:.35rem 0}
+.srcid{display:inline-block;font-size:.72rem;font-weight:800;background:var(--pink);border-radius:1rem;padding:0 .45rem;margin-left:.25rem;vertical-align:1px;cursor:help}
+.ai-status{font-family:var(--f-hand);color:var(--ink-soft);font-size:1.05rem}
+.ai-warn{background:#fdecc8;border-radius:12px;padding:.7rem .9rem;margin-top:.8rem;font-size:.92rem}
+.qprof{margin-top:.8rem}
+.postit.q{outline:2px dashed var(--pink-deep);outline-offset:-6px}
+.qtag{font-family:var(--f-hand);font-size:.95rem;color:var(--pink-deep)}
+.done-q{text-decoration:line-through;opacity:.6}
+
 </style>
-<style>
-/* compléments propres au carnet de hadiths */
-.hadiths{display:grid;gap:1rem;margin-top:1.2rem}
-.hcard{border:1.5px solid var(--pink-deep);border-radius:14px;padding:1.1rem 1.2rem;background:var(--paper);position:relative}
-.hcard.known{background:var(--pink-soft)}
-.hcard .num{position:absolute;top:-.85rem;left:1rem;font-family:var(--f-hand);font-size:1.05rem;background:var(--pink);padding:0 .8rem;
-  clip-path:polygon(0 0,100% 0,96% 25%,100% 50%,96% 75%,100% 100%,0 100%,4% 75%,0 50%,4% 25%)}
-.hcard .theme{font-family:var(--f-title);font-weight:700;font-size:1.5rem;color:var(--pink-deep);line-height:1.1}
-.hcard .ar{display:block;font-family:var(--f-ar);font-size:1.55rem;line-height:1.9;text-align:right;direction:rtl;margin-top:.5rem}
-.hcard .fr{display:block;font-style:italic;margin-top:.3rem}
-.hcard .ref{display:block;font-family:var(--f-hand);color:var(--ink-soft);margin-top:.3rem;font-size:1.02rem}
-.hcard .check{display:inline-flex;align-items:center;gap:.45rem;margin-top:.7rem;font-family:var(--f-hand);font-size:1.08rem;cursor:pointer}
-.hcard .check input{width:1.15rem;height:1.15rem;accent-color:var(--pink-deep)}
-.welcome{max-width:26rem;margin:1.6rem auto 0;text-align:center;display:grid;gap:.8rem}
-.welcome input{border:1.5px solid var(--pink-deep);border-radius:2rem;padding:.6rem 1rem;text-align:center;font-size:1.1rem;background:var(--paper)}
-.tools{margin-top:2.4rem;border-top:1.5px dashed var(--pink-deep);padding-top:1.2rem;display:grid;gap:.8rem;justify-items:center;text-align:center}
-.tools .row{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center}
-.tools p{font-size:.88rem;color:var(--ink-soft);max-width:34rem}
-.toast{position:fixed;left:50%;bottom:calc(1rem + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:.5rem 1rem;border-radius:2rem;font-weight:700;z-index:60}
-</style>
-</head>
-<body>
+
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
   <symbol id="bow" viewBox="0 0 64 44"><g fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"><path d="M32 20C24 8 8 2 5 10s6 18 27 10z" fill="#F7CCD9"/><path d="M32 20C40 8 56 2 59 10s-6 18-27 10z" fill="#F7CCD9"/><path d="M29 22 18 40l7-2 3 5 5-19M35 22l11 18-7-2-3 5-4-18"/><circle cx="32" cy="20" r="4" fill="#E88DA9"/></g></symbol>
   <symbol id="spark" viewBox="0 0 20 20"><path d="M10 0c1 6 4 9 10 10-6 1-9 4-10 10-1-6-4-9-10-10 6-1 9-4 10-10z" fill="currentColor"/></symbol>
@@ -284,76 +376,167 @@ footer .ar{display:block;font-family:var(--f-ar);font-size:1.35rem;color:var(--p
     <svg class="deco" style="left:0;top:2rem;width:3.4rem;height:2.4rem" aria-hidden="true"><use href="#bow"/></svg>
     <svg class="deco" style="right:.6rem;top:1.5rem;width:1.1rem;height:1.1rem" aria-hidden="true"><use href="#spark"/></svg>
     <p class="bis" lang="ar">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
-    <h1 id="title">Mon carnet</h1>
+    <h1>Mon carnet</h1>
     <p class="kicker"><span>Sîra · Fiqh · Tawhid · Hadiths</span></p>
-    <div class="stats" id="stats" aria-live="polite"></div>
     <nav class="tabs" role="tablist" aria-label="Rubriques">
+      <button class="tab" role="tab" data-view="accueil" id="tab-accueil">Accueil</button>
+      <button class="tab" role="tab" data-view="bibliotheque" id="tab-bibliotheque">Bibliothèque</button>
       <button class="tab" role="tab" data-view="apprendre" id="tab-apprendre">Apprendre</button>
-      <button class="tab" role="tab" data-view="hadiths" id="tab-hadiths">Mes hadiths</button>
-      <button class="tab" role="tab" data-view="devoirs" id="tab-devoirs">Devoirs</button>
+      <button class="tab" role="tab" data-view="assistante" id="tab-assistante" hidden>Assistante</button>
+      <button class="tab" role="tab" data-view="organisation" id="tab-organisation">Organisation</button>
       <button class="tab" role="tab" data-view="pensees" id="tab-pensees">Mes pensées</button>
+      <button class="tab" role="tab" data-view="lexique" id="tab-lexique">Lexique</button>
+      <button class="tab" role="tab" data-view="textes" id="tab-textes">Versets &amp; hadiths</button>
     </nav>
   </header>
 
-  <section class="view" id="view-apprendre" role="tabpanel" aria-labelledby="tab-apprendre">
-    <div id="game"></div>
+  <section class="view" id="view-accueil" role="tabpanel" aria-labelledby="tab-accueil">
+    <div id="home"><p class="notice">Ton tableau de bord se charge…</p></div>
   </section>
 
-  <section class="view" id="view-hadiths" role="tabpanel" aria-labelledby="tab-hadiths" hidden>
-    <p class="lead-hand">Coche « je le connais par cœur » quand tu sais réciter un hadith sans regarder.</p>
-    <div class="filters" style="margin-top:.8rem" id="h-chips"></div>
-    <div class="hadiths" id="hadiths"></div>
+  <section class="view" id="view-bibliotheque" role="tabpanel" aria-labelledby="tab-bibliotheque" hidden>
+    <div id="shelves"><p class="notice">Ta bibliothèque se charge… Tes matières et tes cours vont apparaître ici, rangés sur une étagère par matière.</p></div>
+    <div class="legend" aria-label="Légende">
+      <span><i style="background:repeating-linear-gradient(135deg,#FFFDF9 0 3px,#FFF0F5 3px 6px);border-style:dashed"></i>à rattraper</span>
+      <span><i style="background:var(--pink)"></i>fiches prêtes</span>
+      <span><i style="background:var(--pink-deep)"></i>révisé</span>
+    </div>
   </section>
 
-  <section class="view" id="view-devoirs" role="tabpanel" aria-labelledby="tab-devoirs" hidden>
-    <form class="form" id="form-devoir">
-      <label class="wide">Devoir<input id="devoir-titre" required maxlength="200" placeholder="ex. Apprendre le hadith n° 13"></label>
-      <label>Thème<input id="devoir-matiere" maxlength="40" placeholder="ex. Hadiths"></label>
-      <label>Pour le<input type="date" id="devoir-date"></label>
-      <button class="btn" type="submit">Ajouter</button>
+  <section class="view" id="view-apprendre" role="tabpanel" aria-labelledby="tab-apprendre" hidden>
+    <div id="game"><p class="notice">Ton parcours se charge…</p></div>
+  </section>
+
+  <section class="view" id="view-assistante" role="tabpanel" aria-labelledby="tab-assistante" hidden>
+    <div class="ai-intro"><b>Ton assistante d'étude</b>Elle répond <strong>uniquement à partir de tes textes</strong> : tes cours transcrits, tes leçons, et les versets et hadiths vérifiés.
+      <ul><li>Elle cite toujours le passage avant d'expliquer.</li><li>Chaque citation est vérifiée mot pour mot avant d'être affichée.</li><li>Si la réponse n'est pas dans tes textes, elle te le dit et te propose de poser la question au professeur.</li><li>Elle ne donne jamais d'avis religieux personnel.</li></ul></div>
+    <form class="ask" id="form-ask">
+      <label class="sr" for="ask-q">Ta question</label>
+      <textarea id="ask-q" maxlength="600" placeholder="ex. Pourquoi Ibn al-Qayyim dit-il que les prophètes sont la balance ?"></textarea>
+      <div class="ask-row"><label>Chercher dans <select id="ask-mat"></select></label><button class="btn" type="submit" id="ask-btn">Demander</button></div>
     </form>
-    <div id="devoirs-list"></div>
+    <div id="answers"></div>
+  </section>
+
+  <section class="view" id="view-organisation" role="tabpanel" aria-labelledby="tab-organisation" hidden>
+    <div class="org-sec">
+      <h2>Mon agenda</h2>
+      <p class="lead-hand" style="text-align:left">Le jour et l'heure de chaque cours (heure de Paris).</p>
+      <div class="sched" id="sched"></div>
+      <form class="form ev" id="form-ev" style="margin-top:1rem">
+        <label class="wide">Rendez-vous<input id="ev-titre" required maxlength="120" placeholder="ex. QCM de Sîra"></label>
+        <label>Matière<select id="ev-matiere"></select></label>
+        <label>Date<input type="date" id="ev-date" required></label>
+        <button class="btn" type="submit">Ajouter</button>
+      </form>
+      <ul class="list2" id="ev-list" style="margin-top:.6rem"></ul>
+    </div>
+    <div class="org-sec">
+      <h2>Mon plan de rattrapage</h2>
+      <form class="form rat" id="form-rat">
+        <label>Matière<select id="rat-matiere"></select></label>
+        <label>Du cours n°<input type="number" id="rat-from" min="1" max="200" value="1" required></label>
+        <label>au n°<input type="number" id="rat-to" min="1" max="200" value="1" required></label>
+        <button class="btn" type="submit">Ajouter</button>
+      </form>
+      <div class="progress-line" style="margin-top:.8rem"><label for="rat-rythme">Rythme :</label><select id="rat-rythme"><option value="1">1 cours / semaine</option><option value="2">2 cours / semaine</option><option value="3">3 cours / semaine</option><option value="4">4 cours / semaine</option><option value="5">5 cours / semaine</option></select></div>
+      <div id="rat-list"></div>
+    </div>
+    <div class="org-sec">
+      <h2>Mes devoirs</h2>
+      <form class="form" id="form-devoir">
+        <label class="wide">Devoir<input id="devoir-titre" required maxlength="200" placeholder="ex. Réviser les hadiths 1 à 5"></label>
+        <label>Matière<select id="devoir-matiere"></select></label>
+        <label>Pour le<input type="date" id="devoir-date"></label>
+        <button class="btn" type="submit">Ajouter</button>
+      </form>
+      <div id="devoirs-list"></div>
+    </div>
   </section>
 
   <section class="view" id="view-pensees" role="tabpanel" aria-labelledby="tab-pensees" hidden>
-    <p class="lead-hand">Une idée, une question, une réflexion sur un hadith : note-la ici.</p>
+    <p class="lead-hand">Une idée, une réflexion, ou une question à poser : note-la ici.</p>
     <form class="form notes" id="form-note" style="margin-top:.9rem">
-      <label class="wide">Ma pensée<textarea id="note-texte" required maxlength="2000" placeholder="ex. Ce hadith me rappelle de vérifier mon intention avant d'agir"></textarea></label>
-      <label>Thème<input id="note-matiere" maxlength="40" placeholder="facultatif"></label>
+      <label class="wide">Ma pensée<textarea id="note-texte" required maxlength="2000" placeholder="ex. Ce que je veux approfondir…"></textarea></label>
+      <label>Matière<select id="note-matiere"></select></label>
+      <label class="check" style="font-family:var(--f-hand);display:flex;gap:.4rem;align-items:center"><input type="checkbox" id="note-q"> question à poser</label>
       <button class="btn" type="submit">Épingler</button>
     </form>
+    <div class="filters" id="note-chips" style="margin-top:1rem"></div>
     <div class="notes-grid" id="notes-grid"></div>
   </section>
 
-  <div class="tools">
-    <div class="row">
-      <button class="btn ghost" type="button" id="btn-save">Sauvegarder ma progression</button>
-      <label class="btn ghost" for="file-restore" style="cursor:pointer">Restaurer une sauvegarde</label>
-      <input type="file" id="file-restore" accept="application/json,.json" hidden>
-      <button class="btn ghost" type="button" id="btn-name">Changer mon prénom</button>
-    </div>
-    <p>Ta progression est enregistrée dans ce navigateur, sur cet appareil. Pense à la sauvegarder de temps en temps : tu pourras la restaurer sur un autre téléphone ou un ordinateur.</p>
-  </div>
+  <section class="view" id="view-lexique" role="tabpanel" aria-labelledby="tab-lexique" hidden>
+    <div class="filters"><label class="sr" for="lex-q">Chercher un mot</label><input id="lex-q" type="search" placeholder="Chercher un mot, en français ou en arabe…"><span id="lex-chips"></span></div>
+    <div class="words" id="words"></div>
+  </section>
+
+  <section class="view" id="view-textes" role="tabpanel" aria-labelledby="tab-textes" hidden>
+    <div class="filters" id="txt-chips"></div>
+    <div class="texts" id="texts"></div>
+  </section>
 
   <footer><span class="ar" lang="ar">رَبِّ زِدْنِي عِلْمًا</span>« Seigneur, accroît ma science. » · Tâ-Hâ 20:114</footer>
 </main>
 
-<script src="contenu.js?v=202610240646"></script>
+<script src="contenu.js?v=5b4b53cc"></script>
 <script>
-/* ═══════════ Le contenu (leçons, hadiths) est dans contenu.js ═══════════ */
-var C = window.CONTENU || {matieres:[], hadiths:[], modules:[]};
-var MATIERES = C.matieres, HADITHS = C.hadiths, MODULES = C.modules;
-/* ════════════════════════════════════════════════════════════════════════════════════════════════ */
-
+/* Stockage local : même interface que la bibliothèque, données sur cet appareil */
 (function(){
-  var KEY = "carnet-hadiths-v1";
-  var D = load();
-  function blank(){ return {prenom:"", xp:0, lecons:{}, jours:[], badges:[], connus:[], devoirs:[], notes:[]}; }
-  function load(){ try { var v = JSON.parse(localStorage.getItem(KEY)||"null"); return Object.assign(blank(), v||{}); } catch(e){ return blank(); } }
-  function save(){ try { localStorage.setItem(KEY, JSON.stringify(D)); } catch(e){} }
-  var play = null, hFilter = "tout", curMat = "sira";
-  try { curMat = localStorage.getItem("carnet-matiere") || "sira"; } catch(e){}
+  var KEY="carnet-db-v1", SEED=window.SEED||{}, L={}, subs=[];
+  try{ L=JSON.parse(localStorage.getItem(KEY)||"{}")||{}; }catch(e){ L={}; }
+  function persist(){ try{ localStorage.setItem(KEY, JSON.stringify(L)); }catch(e){} }
+  function split(p){ var i=p.lastIndexOf("/"); return [p.slice(0,i), p.slice(i+1)]; }
+  function list(cp){
+    var out={}, base=SEED[cp]||[], over=L[cp]||{};
+    base.forEach(function(d){ out[d.id]=Object.assign({}, d); });
+    Object.keys(over).forEach(function(id){ if (over[id]===null) delete out[id]; else out[id]=Object.assign(out[id]||{}, over[id]); });
+    return out;
+  }
+  function wrap(id,o){ var d=Object.assign({},o); delete d.id; return {id:id, exists:true, data:function(){ return JSON.parse(JSON.stringify(d)); }}; }
+  function notify(){ setTimeout(function(){ subs.forEach(function(s){ try{ s(); }catch(e){} }); }, 0); }
+  function write(cp,id,data,mode){
+    L[cp]=L[cp]||{};
+    if (mode==="delete") L[cp][id]=null;
+    else if (mode==="set") L[cp][id]=JSON.parse(JSON.stringify(data));
+    else L[cp][id]=Object.assign({}, L[cp][id]||{}, JSON.parse(JSON.stringify(data)));
+    persist(); notify(); return Promise.resolve();
+  }
+  function col(cp){ return {
+    onSnapshot:function(cb){ var f=function(){ var m=list(cp); cb({docs:Object.keys(m).map(function(id){ return wrap(id,m[id]); })}); }; subs.push(f); setTimeout(f,0); return function(){ subs=subs.filter(function(x){return x!==f}); }; },
+    add:function(data){ var id="l"+Date.now().toString(36)+Math.random().toString(36).slice(2,6); return write(cp,id,data,"set").then(function(){ return {id:id}; }); },
+    doc:function(id){ return doc(cp+"/"+id); }
+  }; }
+  function doc(p){ var s=split(p), cp=s[0], id=s[1]; return {
+    id:id,
+    update:function(d){ return write(cp,id,d,"update"); },
+    set:function(d){ return write(cp,id,d,"set"); },
+    delete:function(){ return write(cp,id,null,"delete"); },
+    collection:function(n){ return col(p+"/"+n); },
+    onSnapshot:function(cb){ var f=function(){ var m=list(cp); cb(m[id]?wrap(id,m[id]):{id:id,exists:false,data:function(){return undefined}}); }; subs.push(f); setTimeout(f,0); return function(){ subs=subs.filter(function(x){return x!==f}); }; }
+  }; }
+  var db={collection:col, doc:doc};
+  var user={id:function(){return Promise.resolve("moi")}, isOwner:function(){return Promise.resolve(true)}, can:function(){return Promise.resolve(true)}};
+  window.carnetRT={use:function(name){ return name==="db"?Promise.resolve(db):name==="user"?Promise.resolve(user):Promise.reject({code:"not_granted"}); }};
+})();
+</script>
+<script>
+(function(){
+  /* ═══════════ état ═══════════ */
+  var S = {matieres:[], cours:[], lexique:[], textes:[], lecons:[], sources:[], devoirs:[], notes:[], rattrapage:[], evenements:[]};
+  var SHARED = ["matieres","cours","lexique","textes","lecons","sources"], PERSO = ["devoirs","notes","rattrapage","evenements"];
+  var loaded = {}, db = null, mine = null, mineUnsubs = [], canWrite = null, sampleFn = null;
+  var P = blankP(), progRef = null, saving = Promise.resolve(), play = null, pickLesson = null, selected = null;
+  var lexMat = "tout", txtType = "tout", noteFilter = "tout";
+  var STATUTS = [["a-rattraper","À commencer"],["fiches-pretes","En cours"],["revise","Révisé"]];
+  var TYPES = {verset:"Verset", hadith:"Hadith", parole:"Parole de savant", poeme:"Poème"};
+  var JOURS = ["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"];
+  var NIVEAUX = [[0,"Graine","lv1"],[100,"Bourgeon","lv2"],[250,"Fleur","lv3"],[500,"Bouquet","lv4"],[900,"Jardin","lv5"],[1500,"Verger","lv5"]];
+  var BADGES = [["premier-pas","Premier pas","lv2"],["sans-faute","Sans faute","star"],["serie-3","3 jours d'affilée","flame"],["serie-7","7 jours d'affilée","flame"],["expert","Niveau Expert","lv4"],["cours-complet","Cours complet","lv3"],["grand-quiz","Grand quiz réussi","trophy"]];
+  var NIVLAB = {1:["Découverte","Les bases du cours"],2:["Approfondi","Comprendre le raisonnement, avec des pièges"],3:["Expert","L'arabe, les nuances, les liens"]};
+  function blankP(){ return {xp:0, lecons:{}, jours:[], badges:[], jour:{}, erreurs:{}, objectifs:{lecons:3, jours:4}, rythme:2, avant:{}}; }
 
+  /* ═══════════ utilitaires ═══════════ */
   function h(tag, attrs, kids){
     var el = document.createElement(tag);
     if (attrs) for (var k in attrs){
@@ -367,130 +550,396 @@ var MATIERES = C.matieres, HADITHS = C.hadiths, MODULES = C.modules;
     return el;
   }
   function $(id){ return document.getElementById(id); }
-  function ico(id){ var s=document.createElementNS("http://www.w3.org/2000/svg","svg"); s.setAttribute("aria-hidden","true"); var u=document.createElementNS("http://www.w3.org/2000/svg","use"); u.setAttribute("href","#"+id); s.appendChild(u); return s; }
-  function toast(msg){ var t=h("div",{class:"toast",role:"status",text:msg}); document.body.appendChild(t); setTimeout(function(){ t.remove(); }, 2200); }
+  function ico(id, cls){ var s=document.createElementNS("http://www.w3.org/2000/svg","svg"); if(cls) s.setAttribute("class",cls); s.setAttribute("aria-hidden","true"); var u=document.createElementNS("http://www.w3.org/2000/svg","use"); u.setAttribute("href","#"+id); s.appendChild(u); return s; }
+  function matName(id){ var m = S.matieres.find(function(x){return x.id===id}); return m ? m.nom : (id||""); }
+  function ordered(){ return S.matieres.slice().sort(function(a,b){return (a.ordre||0)-(b.ordre||0)}); }
+  function byNum(a,b){ return (a.numero||0)-(b.numero||0); }
   function today(){ var d=new Date(); return new Date(d.getFullYear(),d.getMonth(),d.getDate()); }
   function parseDay(s){ if(!s) return null; var p=s.split("-"); return new Date(+p[0],+p[1]-1,+p[2]); }
-  function fmtDay(s){ var d=parseDay(s); return d ? d.toLocaleDateString("fr-FR",{weekday:"short",day:"numeric",month:"short"}) : ""; }
   function dayKey(d){ d=d||new Date(); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
-  function uid(){ return Date.now().toString(36)+Math.random().toString(36).slice(2,6); }
+  function addDays(d,n){ var x=new Date(d); x.setDate(x.getDate()+n); return x; }
+  function fmtDay(s){ var d=typeof s==="string"?parseDay(s):s; return d ? d.toLocaleDateString("fr-FR",{weekday:"short",day:"numeric",month:"short"}) : ""; }
+  function monday(d){ d=new Date(d||today()); var w=(d.getDay()+6)%7; return addDays(new Date(d.getFullYear(),d.getMonth(),d.getDate()),-w); }
   function shuffle(a){ a=a.slice(); for (var i=a.length-1;i>0;i--){ var j=Math.floor(Math.random()*(i+1)); var t=a[i]; a[i]=a[j]; a[j]=t; } return a; }
-  function hadith(n){ return HADITHS.find(function(x){ return x.n===n; }); }
+  function clone(o){ return JSON.parse(JSON.stringify(o)); }
+  function toast(msg){ var t=h("div",{class:"toast",role:"status",text:msg,style:"position:fixed;left:50%;bottom:calc(1rem + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:.5rem 1rem;border-radius:2rem;font-weight:700;z-index:60"}); document.body.appendChild(t); setTimeout(function(){ t.remove(); }, 2200); }
 
-  /* ——— jeu ——— */
-  var NIVEAUX = [[0,"Graine","lv1"],[100,"Bourgeon","lv2"],[250,"Fleur","lv3"],[500,"Bouquet","lv4"],[900,"Jardin","lv5"],[1500,"Verger","lv5"]];
-  var BADGES = [["premier-pas","Premier pas","lv2"],["sans-faute","Sans faute","star"],["serie-3","3 jours d'affilée","flame"],
-    ["serie-7","7 jours d'affilée","flame"],["par-coeur-5","5 hadiths par cœur","lv3"],["parcours","Module terminé","trophy"]];
-  function streak(){ var set={}; D.jours.forEach(function(j){ set[j]=1; }); var d=new Date(); if (!set[dayKey(d)]) d.setDate(d.getDate()-1); var n=0; while (set[dayKey(d)]){ n++; d.setDate(d.getDate()-1); } return n; }
-  function niveau(){ var cur=NIVEAUX[0], next=null; for (var i=0;i<NIVEAUX.length;i++){ if (D.xp >= NIVEAUX[i][0]){ cur=NIVEAUX[i]; next=NIVEAUX[i+1]||null; } } return {cur:cur,next:next,idx:NIVEAUX.indexOf(cur)}; }
+  /* ═══════════ écritures ═══════════ */
+  function writeShared(fn){ if (!db || canWrite===false) return Promise.resolve(); return fn().catch(function(e){ if (e && e.code==="quota_exceeded") toast("La bibliothèque est pleine."); }); }
+  function localGet(k){ try { return JSON.parse(localStorage.getItem("religion-"+k)||"[]"); } catch(e){ return []; } }
+  function localPut(k, v){ try { localStorage.setItem("religion-"+k, JSON.stringify(v)); } catch(e){} }
+  function useLocal(){
+    mineUnsubs.forEach(function(u){ try{u();}catch(e){} }); mineUnsubs=[]; mine=null;
+    PERSO.forEach(function(k){ S[k]=localGet(k); loaded[k]=true; }); render();
+  }
+  function personal(kind, op, id, data){
+    if (mine){
+      var col = mine.collection(kind), p = op==="add" ? col.add(data) : op==="update" ? col.doc(id).update(data) : col.doc(id).delete();
+      return p.catch(function(e){ if (e && (e.code==="invalid_argument"||e.code==="not_granted")){ useLocal(); return personal(kind, op, id, data); } });
+    }
+    var list = localGet(kind);
+    if (op==="add") list.push(Object.assign({id:"l"+Date.now().toString(36)+Math.random().toString(36).slice(2,6)}, data));
+    else if (op==="update") list = list.map(function(x){ return x.id===id ? Object.assign({}, x, data) : x; });
+    else list = list.filter(function(x){ return x.id!==id; });
+    localPut(kind, list); S[kind]=list; loaded[kind]=true; render(); return Promise.resolve();
+  }
+  function saveP(){
+    var snap = clone(P);
+    if (progRef) saving = saving.then(function(){ return progRef.set(snap); }).catch(function(){ progRef=null; try{ localStorage.setItem("religion-progress", JSON.stringify(snap)); }catch(e){} });
+    else { try{ localStorage.setItem("religion-progress", JSON.stringify(snap)); }catch(e){} }
+  }
+  function loadLocalP(){ try { var v=localStorage.getItem("religion-progress"); if (v) P=Object.assign(blankP(), JSON.parse(v)); } catch(e){} }
+  function jourNow(){ var k=dayKey(); P.jour=P.jour||{}; P.jour[k]=P.jour[k]||{l:0,q:0,ok:0,a:0}; if ((P.jours||[]).indexOf(k)<0){ P.jours=(P.jours||[]).concat([k]).slice(-90); } return P.jour[k]; }
+
+  /* ═══════════ vues ═══════════ */
+  var VIEWS = ["accueil","bibliotheque","apprendre","organisation","pensees","lexique","textes"];
+  function show(v){
+    if (VIEWS.indexOf(v)<0) v="accueil";
+    VIEWS.forEach(function(x){ $("view-"+x).hidden = x!==v; $("tab-"+x).setAttribute("aria-selected", x===v?"true":"false"); });
+    try { history.replaceState(null,"","#"+v); } catch(e){}
+  }
+  document.querySelectorAll(".tab").forEach(function(t){ t.addEventListener("click", function(){ show(t.dataset.view); }); });
+
+  /* ═══════════ calculs ═══════════ */
+  function streak(){ var set={}; (P.jours||[]).forEach(function(j){ set[j]=1; }); var d=new Date(); if (!set[dayKey(d)]) d.setDate(d.getDate()-1); var n=0; while (set[dayKey(d)]){ n++; d.setDate(d.getDate()-1); } return n; }
+  function niveau(){ var cur=NIVEAUX[0], next=null; for (var i=0;i<NIVEAUX.length;i++){ if ((P.xp||0)>=NIVEAUX[i][0]){ cur=NIVEAUX[i]; next=NIVEAUX[i+1]||null; } } return {cur:cur,next:next,idx:NIVEAUX.indexOf(cur)}; }
   function starsFor(p){ return p>=100?3:p>=80?2:p>=50?1:0; }
   function starsEl(n, cls){ var s=h("span",{class:cls||"stars","aria-label":n+" étoile"+(n>1?"s":"")+" sur 3"}); for (var i=0;i<3;i++) s.appendChild(h("span",{class:i<n?"":"off",text:"★"})); return s; }
-  function give(id){ if (D.badges.indexOf(id)<0){ D.badges.push(id); return (BADGES.find(function(b){return b[0]===id})||[0,id])[1]; } return null; }
-
-  function renderStats(){
-    var st=$("stats"); st.textContent="";
-    var todo = D.devoirs.filter(function(d){return !d.fait}), t=today();
-    var late = todo.some(function(d){ var x=parseDay(d.echeance); return x && x<t; });
-    function chip(n,l,a){ st.appendChild(h("span",{class:"stat"+(a?" alert":"")},[h("b",{text:String(n)})," "+l])); }
-    chip(D.connus.length, "hadith"+(D.connus.length>1?"s":"")+" par cœur");
-    chip(D.xp, "XP"); chip(todo.length, "devoir"+(todo.length>1?"s":"")+" à faire", late);
+  function lessonsOf(cid){ return S.lecons.filter(function(l){return l.cours===cid}).sort(function(a,b){return (a.ordre||0)-(b.ordre||0)}); }
+  function lkey(l, niv){ return niv===1 ? l.id : l.id+"@"+niv; }
+  function lp(l, niv){ return (P.lecons||{})[lkey(l,niv)] || {}; }
+  function quizOf(l, niv){ return (niv===1 ? l.quiz : niv===2 ? l.quiz2 : l.quiz3) || []; }
+  function levelOpen(l, niv){ if (niv===1) return true; if (!quizOf(l,niv).length) return false; return (lp(l,niv-1).best||0) >= 80; }
+  function weekDays(){ var m=monday(); var a=[]; for (var i=0;i<7;i++) a.push(dayKey(addDays(m,i))); return a; }
+  function nextCourses(){
+    var now=new Date(), out=[];
+    S.matieres.forEach(function(m){
+      if (m.jour===undefined || m.jour===null || m.jour==="") return;
+      var hm=(m.heure||"20:00").split(":"), d=today();
+      for (var i=0;i<8;i++){ var x=addDays(d,i); if (x.getDay()===+m.jour){ var dt=new Date(x.getFullYear(),x.getMonth(),x.getDate(),+hm[0],+hm[1]); if (dt.getTime()+3600000 > now.getTime()){ out.push({m:m, date:dt}); break; } } }
+    });
+    return out.sort(function(a,b){return a.date-b.date});
+  }
+  function lastCoursOf(mid){ var c=S.cours.filter(function(x){return x.matiere===mid && lessonsOf(x.id).length}).sort(byNum); return c[c.length-1]||null; }
+  function avantKey(n){ return n.m.id+"|"+dayKey(n.date); }
+  function goals(){
+    var wd=weekDays(), J=P.jour||{}, ob=P.objectifs||{lecons:3,jours:4};
+    var lec=0, days=0; wd.forEach(function(d){ var j=J[d]; if (j){ lec+=j.l||0; if ((j.l||0)+(j.q||0)+(j.a||0)>0) days++; } });
+    var g=[{t:"Faire "+ob.lecons+" leçon"+(ob.lecons>1?"s":""), v:lec, n:ob.lecons},{t:"Étudier "+ob.jours+" jour"+(ob.jours>1?"s":""), v:days, n:ob.jours}];
+    var courses=[]; S.matieres.forEach(function(m){ if (m.jour===undefined||m.jour===null||m.jour==="") return; wd.forEach(function(d){ if (parseDay(d).getDay()===+m.jour) courses.push(m.id+"|"+d); }); });
+    if (courses.length){ var a=courses.filter(function(k){return (P.avant||{})[k]}).length; g.push({t:"Réviser avant chaque cours", v:a, n:courses.length}); }
+    var due=S.devoirs.filter(function(d){ return d.echeance && wd.indexOf(d.echeance)>=0; });
+    if (due.length) g.push({t:"Rendre mes devoirs de la semaine", v:due.filter(function(d){return d.fait}).length, n:due.length});
+    var pct=Math.round(g.reduce(function(s,x){ return s+Math.min(1,x.v/Math.max(1,x.n)); },0)/g.length*100);
+    return {list:g, pct:pct};
+  }
+  function ratSchedule(){
+    var r=Math.max(1,+(P.rythme||2)), todo=S.rattrapage.filter(function(x){return !x.fait});
+    var by={}; todo.forEach(function(x){ (by[x.matiere]=by[x.matiere]||[]).push(x); });
+    Object.keys(by).forEach(function(k){ by[k].sort(byNum); });
+    var order=[], keys=ordered().map(function(m){return m.id}).filter(function(k){return by[k]}), more=true;
+    Object.keys(by).forEach(function(k){ if (keys.indexOf(k)<0) keys.push(k); });
+    while (more){ more=false; keys.forEach(function(k){ if (by[k].length){ order.push(by[k].shift()); more=true; } }); }
+    var start=today(); return order.map(function(x,i){ return {item:x, date:addDays(start, Math.floor(i*7/r))}; });
   }
 
-  function renderHud(box){
-    var nv=niveau(), base=nv.cur[0], top=nv.next?nv.next[0]:base, pct=nv.next?Math.round((D.xp-base)/(top-base)*100):100, sk=streak();
-    box.appendChild(h("div",{class:"hud"},[h("div",{class:"lvl"},[ico(nv.cur[2])]),
-      h("div",{},[h("div",{class:"name",text:"Niveau "+(nv.idx+1)+" · "+nv.cur[1]}),
-        h("div",{class:"bar",role:"progressbar","aria-valuemin":"0","aria-valuemax":"100","aria-valuenow":String(pct)},[h("i",{style:"width:"+pct+"%"})]),
-        h("div",{class:"xp",text:D.xp+" XP"+(nv.next?" · encore "+(top-D.xp)+" XP pour « "+nv.next[1]+" »":" · niveau maximum")})]),
-      h("div",{class:"streak"},[ico("flame"), h("b",{text:String(sk)}), " jour"+(sk>1?"s":"")+" d'affilée"])]));
+  /* ═══════════ ACCUEIL ═══════════ */
+  function ring(pct){
+    var NS="http://www.w3.org/2000/svg", s=document.createElementNS(NS,"svg"); s.setAttribute("viewBox","0 0 100 100"); s.setAttribute("class","ring"); s.setAttribute("role","img"); s.setAttribute("aria-label","Objectif atteint à "+pct+" %");
+    function c(attrs){ var e=document.createElementNS(NS,"circle"); for (var k in attrs) e.setAttribute(k,attrs[k]); s.appendChild(e); }
+    c({cx:50,cy:50,r:42,fill:"none",stroke:"#FFF0F5","stroke-width":12});
+    c({cx:50,cy:50,r:42,fill:"none",stroke:"#E88DA9","stroke-width":12,"stroke-linecap":"round","stroke-dasharray":"263.9","stroke-dashoffset":String(263.9*(1-pct/100)),transform:"rotate(-90 50 50)"});
+    var t=document.createElementNS(NS,"text"); t.setAttribute("x","50"); t.setAttribute("y","57"); t.setAttribute("text-anchor","middle"); t.setAttribute("font-size","22"); t.setAttribute("font-weight","800"); t.setAttribute("fill","#49332F"); t.textContent=pct+" %"; s.appendChild(t);
+    return s;
+  }
+  var editGoals=false;
+  function renderHome(){
+    var box=$("home"); box.textContent="";
+    if (!loaded.matieres){ box.appendChild(h("p",{class:"notice",text: db===false ? "Ouvre ta bibliothèque depuis ton compte Claude pour retrouver ton tableau de bord." : "Ton tableau de bord se charge…"})); return; }
+    var nc=nextCourses();
+    if (nc.length){
+      var n=nc[0], days=Math.round((new Date(n.date.getFullYear(),n.date.getMonth(),n.date.getDate())-today())/86400000);
+      var when = days===0 ? "aujourd'hui" : days===1 ? "demain" : "dans "+days+" jours";
+      var lc=lastCoursOf(n.m.id), done=(P.avant||{})[avantKey(n)];
+      box.appendChild(h("div",{class:"next"},[h("div",{},[h("b",{text:"Prochain cours : "+n.m.nom}), h("div",{class:"when2",text:JOURS[n.date.getDay()]+" à "+(n.m.heure||"20:00").replace(":"," h ")+" · "+when})]),
+        lc && days<=3 ? h("button",{class:"btn",type:"button",text: done ? "Avant le cours ✓ (refaire)" : "Avant le cours · 10 min",onclick:function(){ show("apprendre"); startAvant(n, lc); }}) : null]));
+    } else box.appendChild(h("p",{class:"next"},[h("span",{text:"Indique le jour de tes cours dans Organisation pour voir ton prochain cours ici."})]));
+
+    var dash=h("div",{class:"dash"});
+    // objectif
+    var G=goals(), gl=h("ul");
+    G.list.forEach(function(x){ gl.appendChild(h("li",{class:x.v>=x.n?"ok":""},[h("span",{text:x.t}), h("b",{text:Math.min(x.v,x.n)+"/"+x.n})])); });
+    var gcard=h("div",{class:"card2"},[h("h3",{},["Mon objectif de la semaine", h("button",{type:"button",text:editGoals?"Fermer":"Modifier",onclick:function(){ editGoals=!editGoals; renderHome(); }})]),
+      h("div",{class:"goal"},[ring(G.pct), gl])]);
+    if (editGoals){
+      var ob=P.objectifs||{lecons:3,jours:4};
+      function num(id,val,key){ return h("input",{type:"number",id:id,min:"1",max:"30",value:String(val),onchange:function(e){ var v=Math.max(1,Math.min(30,+e.target.value||1)); P.objectifs=Object.assign({},P.objectifs,{}); P.objectifs[key]=v; saveP(); renderHome(); }}); }
+      gcard.appendChild(h("div",{class:"goal-edit"},[h("label",{"for":"g-lec",text:"Leçons par semaine"}), num("g-lec",ob.lecons,"lecons"), h("label",{"for":"g-jours",text:"Jours d'étude par semaine"}), num("g-jours",ob.jours,"jours")]));
+      gcard.appendChild(h("p",{class:"empty2",style:"margin-top:.5rem",text:"« Réviser avant chaque cours » et « Rendre mes devoirs » se calculent tout seuls à partir de ton agenda et de tes devoirs."}));
+    }
+    dash.appendChild(gcard);
+    // KPIs
+    var tq=0, tok=0; Object.keys(P.jour||{}).forEach(function(k){ tq+=P.jour[k].q||0; tok+=P.jour[k].ok||0; });
+    var nv=niveau();
+    var rev=S.cours.filter(function(c){return c.statut==="revise"}).length;
+    function kpi(v,l){ return h("div",{class:"kpi"},[h("b",{text:String(v)}), h("span",{text:l})]); }
+    dash.appendChild(h("div",{class:"kpis"},[kpi(streak(),"jours d'affilée"), kpi(P.xp||0,"XP · niveau "+nv.cur[1]), kpi(tq?Math.round(tok/tq*100)+" %":"—","de bonnes réponses"), kpi(rev+"/"+S.cours.length,"cours révisés")]));
+    // matières + heatmap
+    var mat=h("div",{class:"mat"});
+    ordered().forEach(function(m){
+      var ls=[]; S.cours.filter(function(c){return c.matiere===m.id}).forEach(function(c){ ls=ls.concat(lessonsOf(c.id)); });
+      var tot=0, ok=0; ls.forEach(function(l){ [1,2,3].forEach(function(n){ if (quizOf(l,n).length){ tot++; if ((lp(l,n).stars||0)>0) ok++; } }); });
+      var pct=tot?Math.round(ok/tot*100):0;
+      mat.appendChild(h("div",{},[h("span",{text:m.nom}), h("span",{class:"bar"},[h("i",{style:"width:"+pct+"%"})]), h("b",{text:tot?pct+" %":"—"})]));
+    });
+    var heat=h("div",{class:"heat","aria-label":"Jours d'étude des 8 dernières semaines"}), start=addDays(monday(),-49), tk=dayKey();
+    for (var i=0;i<56;i++){ var d=dayKey(addDays(start,i)), j=(P.jour||{})[d], sc=j?(j.l||0)*3+(j.q||0)+(j.a||0)*3:0, lv=sc===0?0:sc<6?1:sc<15?2:3;
+      heat.appendChild(h("i",{class:"d"+lv+(d===tk?" today":""),title:fmtDay(d)+(sc?" · "+(j.q||0)+" questions":"")})); }
+    dash.appendChild(h("div",{class:"dash-2"},[h("div",{class:"card2"},[h("h3",{text:"Ma progression par matière"}), mat, h("p",{class:"empty2",style:"margin-top:.6rem",text:"Pourcentage des niveaux validés (Découverte, Approfondi, Expert)."})]),
+      h("div",{class:"card2"},[h("h3",{text:"Mes jours d'étude · 8 semaines"}), heat, h("div",{class:"heat-legend"},[h("span",{text:"il y a 8 semaines"}), h("span",{text:"aujourd'hui"})])])]));
+    // à revoir + à venir
+    var err=Object.keys(P.erreurs||{}).map(function(k){ return Object.assign({k:k},P.erreurs[k]); }).filter(function(e){return e.n>0}).sort(function(a,b){return b.n-a.n}).slice(0,4);
+    var ul1=h("ul",{class:"list2"});
+    if (!err.length) ul1.appendChild(h("li",{},[h("span",{class:"empty2",text:"Rien à revoir pour l'instant. Les questions que tu rates apparaîtront ici."})]));
+    err.forEach(function(e){ ul1.appendChild(h("li",{},[h("span",{},[e.q||"", h("span",{class:"sub2",text:"ratée "+e.n+" fois"})])])); });
+    var c1=h("div",{class:"card2"},[h("h3",{},["À revoir en priorité", err.length?h("button",{type:"button",text:"Tout revoir",onclick:function(){ show("apprendre"); startRevue(); }}):null]), ul1]);
+    var ul2=h("ul",{class:"list2"}), soon=[], lim=addDays(today(),7);
+    S.devoirs.filter(function(d){return !d.fait && d.echeance && parseDay(d.echeance)<=lim}).forEach(function(d){ soon.push({d:d.echeance,t:d.titre,s:"devoir · "+matName(d.matiere)}); });
+    S.evenements.filter(function(e){ var x=parseDay(e.date); return x && x>=today() && x<=addDays(today(),14); }).forEach(function(e){ soon.push({d:e.date,t:e.titre,s:"rendez-vous · "+matName(e.matiere)}); });
+    ratSchedule().slice(0,2).forEach(function(r){ soon.push({d:dayKey(r.date),t:"Rattraper : "+matName(r.item.matiere)+" cours "+r.item.numero,s:"rattrapage"}); });
+    var qs=S.notes.filter(function(n){return n.question && !n.repondu}).length;
+    soon.sort(function(a,b){return a.d.localeCompare(b.d)});
+    if (!soon.length && !qs) ul2.appendChild(h("li",{},[h("span",{class:"empty2",text:"Rien de prévu dans les 7 prochains jours."})]));
+    soon.slice(0,5).forEach(function(x){ ul2.appendChild(h("li",{},[h("span",{},[x.t, h("span",{class:"sub2",text:x.s})]), h("b",{text:fmtDay(x.d)})])); });
+    if (qs) ul2.appendChild(h("li",{},[h("span",{},[qs+" question"+(qs>1?"s":"")+" à poser", h("span",{class:"sub2",text:"dans Mes pensées"})]), h("button",{class:"btn sm",type:"button",text:"Voir",onclick:function(){ noteFilter="q"; show("pensees"); renderNotes(); }})]));
+    dash.appendChild(h("div",{class:"dash-2"},[c1, h("div",{class:"card2"},[h("h3",{text:"À venir"}), ul2])]));
+    // badges
     var bd=h("div",{class:"badges"});
-    BADGES.forEach(function(b){ var on=D.badges.indexOf(b[0])>=0; bd.appendChild(h("div",{class:"badge"+(on?" on":""),title:b[1]},[h("div",{class:"medal"},[ico(b[2])]), b[1]])); });
-    box.appendChild(bd);
+    BADGES.forEach(function(b){ var on=(P.badges||[]).indexOf(b[0])>=0; bd.appendChild(h("div",{class:"badge"+(on?" on":""),title:b[1]},[h("div",{class:"medal"},[ico(b[2])]), b[1]])); });
+    dash.appendChild(bd);
+    box.appendChild(dash);
   }
 
+  /* ═══════════ BIBLIOTHÈQUE ═══════════ */
+  function renderShelves(){
+    var box=$("shelves"); box.textContent="";
+    if (!loaded.matieres){ box.appendChild(h("p",{class:"notice",text: db===false ? "Ouvre ta bibliothèque depuis ton compte Claude pour retrouver tes cours." : "Ta bibliothèque se charge…"})); return; }
+    ordered().forEach(function(m){
+      var cours=S.cours.filter(function(c){return c.matiere===m.id}).sort(byNum);
+      var head=h("div",{class:"shelf-head"},[h("h2",{},[m.nom||"", m.arabe?h("span",{class:"ar",lang:"ar",text:m.arabe}):null]), (m.jour!==undefined&&m.jour!==null&&m.jour!=="")?h("span",{class:"when",text:JOURS[+m.jour]+" · "+(m.heure||"").replace(":"," h ")}):null]);
+      var books=h("div",{class:"books",role:"list","aria-label":"Cours de "+(m.nom||"")});
+      cours.forEach(function(c){
+        var st=c.statut==="revise"?"s-revise":c.statut==="fiches-pretes"?"s-fiches":"s-rattraper", hgt=10.5+((c.numero||1)*37%5)*.6;
+        books.appendChild(h("button",{class:"spine "+st,role:"listitem",style:"height:"+hgt+"rem","aria-pressed":selected===c.id?"true":"false","aria-label":"Cours "+(c.numero||"")+" : "+(c.titre||""),onclick:function(){ selected=selected===c.id?null:c.id; renderShelves(); }},
+          [h("span",{class:"no",text:String(c.numero||"?")}), h("span",{class:"t",text:c.court||c.titre||""})]));
+      });
+      books.appendChild(h("div",{class:"spine add",style:"height:10.5rem","aria-hidden":"true"},[h("span",{class:"t",text:"cours suivant"})]));
+      var shelf=h("div",{class:"shelf"},[head, m.livre?h("p",{class:"shelf-book",text:m.livre}):null, books, h("div",{class:"board"})]);
+      if (!cours.length) shelf.appendChild(h("p",{class:"lead-hand",style:"margin-top:.7rem",text:"Le premier module de "+(m.nom||"cette matière")+" arrive bientôt, in shâ' Allâh."}));
+      var sel=cours.find(function(c){return c.id===selected}); if (sel) shelf.appendChild(courseCard(sel));
+      box.appendChild(shelf);
+    });
+  }
+  function courseCard(c){
+    var links=h("div",{class:"links"});
+    if (c.fiches) links.appendChild(h("a",{href:c.fiches,target:"_blank",rel:"noopener",text:"Ouvrir les fiches"}));
+    if (c.transcription) links.appendChild(h("a",{href:c.transcription,target:"_blank",rel:"noopener",text:"Cours détaillé + transcription"}));
+    if (lessonsOf(c.id).length) links.appendChild(h("a",{href:"#apprendre",text:"Jouer le parcours",onclick:function(e){ e.preventDefault(); show("apprendre"); }}));
+    var seg=h("div",{class:"seg",role:"group","aria-label":"Avancement"});
+    STATUTS.forEach(function(s){ seg.appendChild(h("button",{type:"button","aria-pressed":c.statut===s[0]?"true":"false",disabled:!db||canWrite===false,text:s[1],onclick:function(){ if (c.statut===s[0]) return; writeShared(function(){ return db.doc("cours/"+c.id).update({statut:s[0]}); }); }})); });
+    var meta=[c.date?fmtDay(c.date):null, c.duree, c.pages?c.pages+" fiches":null].filter(Boolean).join(" · ");
+    return h("div",{class:"card"},[h("h3",{text:"Cours "+(c.numero||"")+" · "+(c.titre||"")}), meta?h("p",{class:"meta",text:meta}):null, c.resume?h("p",{class:"resume",text:c.resume}):null, links, seg]);
+  }
+
+  /* ═══════════ APPRENDRE ═══════════ */
+  function renderHud(box){
+    var nv=niveau(), base=nv.cur[0], top=nv.next?nv.next[0]:base, pct=nv.next?Math.round(((P.xp||0)-base)/(top-base)*100):100, sk=streak();
+    box.appendChild(h("div",{class:"hud"},[h("div",{class:"lvl"},[ico(nv.cur[2])]),
+      h("div",{},[h("div",{class:"name",text:"Niveau "+(nv.idx+1)+" · "+nv.cur[1]}), h("div",{class:"bar",role:"progressbar","aria-valuemin":"0","aria-valuemax":"100","aria-valuenow":String(pct)},[h("i",{style:"width:"+pct+"%"})]),
+        h("div",{class:"xp",text:(P.xp||0)+" XP"+(nv.next?" · encore "+(top-(P.xp||0))+" XP pour « "+nv.next[1]+" »":" · niveau maximum")})]),
+      h("div",{class:"streak"},[ico("flame"), h("b",{text:String(sk)}), " jour"+(sk>1?"s":"")+" d'affilée"])]));
+  }
   function renderGame(){
     if (play) return;
     var box=$("game"); box.textContent="";
-    if (!D.prenom){
-      box.appendChild(h("form",{class:"welcome",onsubmit:function(e){ e.preventDefault(); var v=$("prenom").value.trim(); if(!v) return; D.prenom=v; save(); renderAll(); }},[
-        h("p",{class:"lead-hand",style:"font-size:1.3rem",text:"Bienvenue ! Comment tu t'appelles ?"}),
-        h("label",{class:"sr","for":"prenom",text:"Ton prénom"}), h("input",{id:"prenom",maxlength:"30",placeholder:"Ton prénom",autocomplete:"given-name",required:true}),
-        h("button",{class:"btn",type:"submit",text:"Commencer mon carnet"})]));
-      return;
-    }
+    if (!loaded.lecons){ box.appendChild(h("p",{class:"notice",text: db===false?"Ouvre ta bibliothèque depuis ton compte Claude pour jouer.":"Ton parcours se charge…"})); return; }
     renderHud(box);
-    var chips=h("div",{class:"filters",style:"justify-content:center;margin-top:1.6rem"});
-    MATIERES.forEach(function(m){ chips.appendChild(h("button",{class:"chip",type:"button","aria-pressed":curMat===m[0]?"true":"false",text:m[1],
-      onclick:function(){ curMat=m[0]; try{ localStorage.setItem("carnet-matiere",curMat); }catch(e){} renderGame(); }})); });
-    box.appendChild(chips);
-    var mods=MODULES.filter(function(m){ return m.matiere===curMat; });
-    if (!mods.length){ box.appendChild(h("p",{class:"notice",text:"Les leçons de cette matière arrivent bientôt, in shâ'Allâh."})); return; }
-    mods.forEach(function(m){
-      box.appendChild(h("h2",{class:"path-title",text:m.titre}));
-      if (m.sous) box.appendChild(h("p",{class:"path-sub",text:m.sous}));
+    var cids=[]; S.lecons.forEach(function(l){ if (cids.indexOf(l.cours)<0) cids.push(l.cours); });
+    if (!cids.length){ box.appendChild(h("p",{class:"notice",text:"Les premiers modules arrivent bientôt."})); return; }
+    cids.forEach(function(cid){
+      var c=S.cours.find(function(x){return x.id===cid})||{titre:cid}, ls=lessonsOf(cid);
+      box.appendChild(h("h2",{class:"path-title",text:matName(c.matiere)+" · cours "+(c.numero||"")}));
+      box.appendChild(h("p",{class:"path-sub",text:(c.titre||"")+" · 3 niveaux par leçon"}));
       var ul=h("ol",{class:"path"}), prevOk=true, allOk=true;
-      m.lecons.forEach(function(l,i){
-        var pr=D.lecons[l.id], st=pr?pr.stars:0, unlocked=prevOk; if(!st) allOk=false;
-        ul.appendChild(h("li",{},[h("button",{class:"node"+(st?" done":"")+(unlocked?"":" lock"),type:"button",disabled:!unlocked,"aria-label":"Leçon "+(i+1)+" : "+l.titre+(unlocked?"":" (verrouillée)"),onclick:function(){ startLesson(m,l); }},[unlocked?String(i+1):ico("lock")]),
-          h("span",{class:"lbl",text:l.titre}), starsEl(st)]));
-        prevOk = st>0;
+      ls.forEach(function(l,i){
+        var st1=lp(l,1).stars||0, unlocked=prevOk; if (!st1) allOk=false;
+        var pips=h("span",{class:"lvls","aria-label":"Niveaux validés"}); [1,2,3].forEach(function(n){ pips.appendChild(h("i",{class:(lp(l,n).stars||0)>0?"on":""})); });
+        var li=h("li",{},[h("button",{class:"node"+(st1?" done":"")+(unlocked?"":" lock"),type:"button",disabled:!unlocked,"aria-label":"Leçon "+(i+1)+" : "+l.titre+(unlocked?"":" (verrouillée)"),onclick:function(){ pickLesson=pickLesson===l.id?null:l.id; renderGame(); }},[unlocked?String(i+1):ico("lock")]),
+          h("span",{class:"lbl",text:l.titre}), pips]);
+        if (pickLesson===l.id){
+          var lpick=h("div",{class:"levelpick"},[h("h4",{text:l.titre})]);
+          [1,2,3].forEach(function(n){
+            var open=levelOpen(l,n), r=lp(l,n), has=quizOf(l,n).length;
+            if (!has) return;
+            lpick.appendChild(h("button",{type:"button",disabled:!open,onclick:function(){ startLesson(l,n); }},[h("div",{},[h("b",{text:NIVLAB[n][0]}), h("span",{text: open ? NIVLAB[n][1] : "Débloqué à 80 % au niveau précédent"})]), open?starsEl(r.stars||0):ico("lock")]));
+          });
+          li.appendChild(lpick);
+        }
+        ul.appendChild(li); prevOk=st1>0;
       });
-      var bid="grand-"+m.id, bpr=D.lecons[bid], bst=bpr?bpr.stars:0;
-      ul.appendChild(h("li",{},[h("button",{class:"node boss"+(bst?" done":"")+(allOk?"":" lock"),type:"button",disabled:!allOk,"aria-label":"Grand quiz"+(allOk?"":" (termine toutes les leçons pour le débloquer)"),onclick:function(){ startBoss(m); }},[ico(allOk?"trophy":"lock")]),
+      var bst=(P.lecons["grand-"+cid]||{}).stars||0;
+      ul.appendChild(h("li",{},[h("button",{class:"node boss"+(bst?" done":"")+(allOk?"":" lock"),type:"button",disabled:!allOk,"aria-label":"Grand quiz"+(allOk?"":" (termine les leçons pour le débloquer)"),onclick:function(){ startBoss(cid); }},[ico(allOk?"trophy":"lock")]),
         h("span",{class:"lbl",text:"Grand quiz"}), starsEl(bst)]));
       box.appendChild(ul);
     });
   }
-
-  function startLesson(m,l){ play={kind:"lecon",module:m,lecon:l,id:l.id,titre:l.titre,cartes:l.cartes||[],quiz:shuffle(l.quiz.map(function(q){return Object.assign({},q)})),step:0,phase:(l.cartes||[]).length?"cartes":"quiz",qi:0,good:0,picked:null}; tick(); draw(); }
-  function startBoss(m){ var all=[]; m.lecons.forEach(function(l){ l.quiz.forEach(function(q){ all.push(Object.assign({},q)); }); });
-    play={kind:"boss",module:m,id:"grand-"+m.id,titre:"Grand quiz",cartes:[],quiz:shuffle(all).slice(0,10),step:0,phase:"quiz",qi:0,good:0,picked:null}; tick(); draw(); }
-  function tick(){ var k=dayKey(); if (D.jours.indexOf(k)<0){ D.jours.push(k); D.jours=D.jours.slice(-60); save(); } }
-  function quit(){ play=null; renderGame(); renderStats(); $("view-apprendre").scrollIntoView({block:"start"}); }
+  function prepQ(q, key, l, niv){ var c=clone(q); c._key=key; c._lecon=l?l.id:null; c._niv=niv; return c; }
+  function startLesson(l, niv){
+    var qs=quizOf(l,niv).map(function(q,i){ return prepQ(q, l.id+"@"+niv+"#"+i, l, niv); });
+    play={kind:"lecon", lecon:l, niv:niv, id:lkey(l,niv), titre:l.titre+" · "+NIVLAB[niv][0], cartes:niv===1?(l.cartes||[]):[], quiz:shuffle(qs), step:0, phase:niv===1&&(l.cartes||[]).length?"cartes":"quiz", qi:0, good:0, st:null};
+    pickLesson=null; jourNow(); draw();
+  }
+  function startBoss(cid){
+    var all=[]; lessonsOf(cid).forEach(function(l){ [1,2,3].forEach(function(n){ if (levelOpen(l,n)) quizOf(l,n).forEach(function(q,i){ if ((q.type||"qcm")!=="redige") all.push(prepQ(q,l.id+"@"+n+"#"+i,l,n)); }); }); });
+    play={kind:"boss", cours:cid, id:"grand-"+cid, titre:"Grand quiz", cartes:[], quiz:shuffle(all).slice(0,10), step:0, phase:"quiz", qi:0, good:0, st:null}; jourNow(); draw();
+  }
+  function findQ(key){ var m=/^(.*)@(\d)#(\d+)$/.exec(key); if (!m) return null; var l=S.lecons.find(function(x){return x.id===m[1]}); if (!l) return null; var q=quizOf(l,+m[2])[+m[3]]; return q?prepQ(q,key,l,+m[2]):null; }
+  function startRevue(){
+    var keys=Object.keys(P.erreurs||{}).filter(function(k){return P.erreurs[k].n>0}).sort(function(a,b){return P.erreurs[b].n-P.erreurs[a].n}).slice(0,10);
+    var qs=keys.map(findQ).filter(Boolean); if (!qs.length) return;
+    play={kind:"revue", id:"revue", titre:"Révision de mes erreurs", cartes:[], quiz:shuffle(qs), step:0, phase:"quiz", qi:0, good:0, st:null}; jourNow(); draw();
+  }
+  function startAvant(n, c){
+    var ls=lessonsOf(c.id), cartes=[{titre:"Le cours précédent", texte:c.resume||c.titre}];
+    ls.forEach(function(l){ var r=(l.cartes||[]).find(function(x){return /retenir/i.test(x.titre)}); if (r) cartes.push({titre:l.titre, texte:r.texte, arabe:r.arabe}); });
+    var pool=[]; ls.forEach(function(l){ [1,2].forEach(function(nv){ if (levelOpen(l,nv)||nv===1) quizOf(l,nv).forEach(function(q,i){ if ((q.type||"qcm")==="qcm") pool.push(prepQ(q,l.id+"@"+nv+"#"+i,l,nv)); }); }); });
+    play={kind:"avant", avantKey:avantKey(n), id:"avant", titre:"Avant le cours de "+n.m.nom, cartes:cartes, quiz:shuffle(pool).slice(0,6), step:0, phase:"cartes", qi:0, good:0, st:null}; jourNow(); draw();
+  }
+  function quit(){ play=null; renderGame(); renderHome(); $("view-apprendre").scrollIntoView({block:"start"}); }
+  function record(q, ok){
+    var j=jourNow(); j.q=(j.q||0)+1; if (ok) j.ok=(j.ok||0)+1;
+    P.erreurs=P.erreurs||{};
+    if (!ok){ var e=P.erreurs[q._key]||{n:0}; e.n=(e.n||0)+1; e.q=q.q; e.last=dayKey(); P.erreurs[q._key]=e; }
+    else if (P.erreurs[q._key]){ P.erreurs[q._key].n=Math.max(0,(P.erreurs[q._key].n||0)-1); if (!P.erreurs[q._key].n) delete P.erreurs[q._key]; }
+  }
 
   function draw(){
     var box=$("game"); box.textContent="";
     var p=play, total=p.cartes.length+p.quiz.length, done=p.phase==="cartes"?p.step:p.phase==="quiz"?p.cartes.length+p.qi:total;
-    var body=h("div",{class:"player"},[h("div",{class:"player-top"},[h("button",{class:"close",type:"button","aria-label":"Quitter la leçon",text:"✕",onclick:quit}),
+    var body=h("div",{class:"player"},[h("div",{class:"player-top"},[h("button",{class:"close",type:"button","aria-label":"Quitter",text:"✕",onclick:quit}),
       h("div",{class:"bar",role:"progressbar","aria-valuemin":"0","aria-valuemax":String(total),"aria-valuenow":String(done)},[h("i",{style:"width:"+Math.round(done/Math.max(total,1)*100)+"%"})])])]);
     if (p.phase==="cartes"){
       var c=p.cartes[p.step], last=p.step===p.cartes.length-1;
-      body.appendChild(h("div",{class:"lesson-card"},[h("span",{class:"tag",text:p.titre+" · carte "+(p.step+1)+"/"+p.cartes.length}), h("h3",{text:c.titre}), c.arabe?h("span",{class:"ar",lang:"ar",text:c.arabe}):null, h("p",{text:c.texte})]));
+      body.appendChild(h("div",{class:"lesson-card"},[h("span",{class:"tag",text:p.titre+" · carte "+(p.step+1)+"/"+p.cartes.length}), h("h3",{text:c.titre||""}), c.arabe?h("span",{class:"ar",lang:"ar",text:c.arabe}):null, h("p",{text:c.texte||""})]));
       body.appendChild(h("div",{class:"actions"},[p.step>0?h("button",{class:"btn ghost",type:"button",text:"Précédent",onclick:function(){ p.step--; draw(); }}):null,
-        h("button",{class:"btn",type:"button",text:last?"Commencer le quiz":"Suivant",onclick:function(){ if(last){ p.phase="quiz"; } else p.step++; draw(); }})]));
-    } else if (p.phase==="quiz"){
-      var q=p.quiz[p.qi]; if (!q._o) q._o=shuffle(q.choix.map(function(_,i){return i;}));
-      body.appendChild(h("p",{class:"q-text",text:"Question "+(p.qi+1)+"/"+p.quiz.length+" · "+q.q}));
-      var list=h("div",{class:"choices"});
-      q._o.forEach(function(ci){ var cls="choice"; if (p.picked!==null){ if(ci===q.bonne) cls+=" ok"; else if(ci===p.picked) cls+=" ko"; }
-        list.appendChild(h("button",{class:cls,type:"button",disabled:p.picked!==null,text:q.choix[ci],onclick:function(){ p.picked=ci; if(ci===q.bonne) p.good++; draw(); }})); });
-      body.appendChild(list);
-      if (p.picked!==null){ var ok=p.picked===q.bonne, lastQ=p.qi===p.quiz.length-1;
-        body.appendChild(h("div",{class:"feedback "+(ok?"ok":"ko"),role:"status"},[h("b",{text:ok?"Bravo, c'est juste !":"Pas tout à fait…"}), ok?(q.explication||""):"La bonne réponse : "+q.choix[q.bonne]+(q.explication?". "+q.explication:"")]));
-        body.appendChild(h("div",{class:"actions"},[h("button",{class:"btn",type:"button",text:lastQ?"Voir mon résultat":"Question suivante",onclick:function(){ if(lastQ) finish(); else { p.qi++; p.picked=null; draw(); } }})])); }
-    } else body.appendChild(p.res);
+        h("button",{class:"btn",type:"button",text:last?(p.quiz.length?"Commencer le quiz":"Terminer"):"Suivant",onclick:function(){ if (last){ if (p.quiz.length){ p.phase="quiz"; draw(); } else finish(); } else { p.step++; draw(); } }})]));
+    } else if (p.phase==="quiz") drawQ(body);
+    else body.appendChild(p.res);
     box.appendChild(body);
-    var f=body.querySelector(".btn, .choice:not(:disabled)"); if (f) try{ f.focus({preventScroll:true}); }catch(e){}
+    var f=body.querySelector(".btn, .choice:not(:disabled), select, textarea"); if (f && p.phase!=="quiz") try{ f.focus({preventScroll:true}); }catch(e){}
   }
-
+  function nextBtn(body){
+    var p=play, lastQ=p.qi===p.quiz.length-1;
+    body.appendChild(h("div",{class:"actions"},[h("button",{class:"btn",type:"button",text:lastQ?"Voir mon résultat":"Question suivante",onclick:function(){ if (lastQ) finish(); else { p.qi++; p.st=null; draw(); } }})]));
+  }
+  function feedback(body, ok, q, correctTxt){
+    var fb=h("div",{class:"feedback "+(ok?"ok":"ko"),role:"status"},[h("b",{text:ok?"Bravo, c'est juste !":"Pas tout à fait…"}), ok?(q.explication||""):(correctTxt?"La bonne réponse : "+correctTxt+". ":"")+(q.explication||"")]);
+    body.appendChild(fb);
+    if (!ok && sampleFn){
+      var slot=h("div",{class:"ai-box"});
+      body.appendChild(h("div",{class:"actions",style:"justify-content:flex-start"},[h("button",{class:"btn ghost sm",type:"button",text:"Explique-moi avec mes textes",onclick:function(e){ e.target.disabled=true; askAI("Pourquoi la bonne réponse à la question « "+q.q+" » est-elle : « "+(correctTxt||"")+" » ?", slot, {lecon:q._lecon}); }})]));
+      body.appendChild(slot);
+    }
+  }
+  function drawQ(body){
+    var p=play, q=p.quiz[p.qi], type=q.type||"qcm";
+    body.appendChild(h("p",{class:"q-text",text:"Question "+(p.qi+1)+"/"+p.quiz.length+(q._niv?" · "+NIVLAB[q._niv][0]:"")+" · "+(q.q||"")}));
+    if (q.ar) body.appendChild(h("span",{class:"q-ar",lang:"ar",text:q.ar}));
+    if (type==="qcm"){
+      if (!q._o) q._o=shuffle(q.choix.map(function(_,i){return i;}));
+      var list=h("div",{class:"choices"});
+      q._o.forEach(function(ci){ var cls="choice"+(q.choixAr?" ar-choice":""); if (p.st){ if (ci===q.bonne) cls+=" ok"; else if (ci===p.st.pick) cls+=" ko"; }
+        list.appendChild(h("button",{class:cls,type:"button",disabled:!!p.st,lang:q.choixAr?"ar":null,text:q.choix[ci],onclick:function(){ var ok=ci===q.bonne; p.st={pick:ci,ok:ok}; if (ok) p.good++; record(q,ok); draw(); }})); });
+      body.appendChild(list);
+      if (p.st){ feedback(body, p.st.ok, q, q.choix[q.bonne]); nextBtn(body); }
+    } else if (type==="associer"){
+      if (!q._r) q._r=shuffle(q.paires.map(function(x){return x[1];}));
+      var wrap=h("div",{class:"assoc"}), sels=[];
+      q.paires.forEach(function(pr,i){
+        var sel=h("select",{id:"as-"+i,disabled:!!p.st},[h("option",{value:"",text:"Choisir…"})].concat(q._r.map(function(r){ return h("option",{value:r,text:r}); })));
+        if (p.st) sel.value=p.st.vals[i];
+        sels.push(sel);
+        var row=h("div",{class:"assoc-row"+(p.st?(p.st.vals[i]===pr[1]?" ok":" ko"):"")},[h("label",{"for":"as-"+i},[h("span",{text:pr[0]})]), sel]);
+        if (p.st && p.st.vals[i]!==pr[1]) row.appendChild(h("span",{class:"fix",text:"→ "+pr[1]}));
+        wrap.appendChild(row);
+      });
+      body.appendChild(wrap);
+      if (!p.st) body.appendChild(h("div",{class:"actions"},[h("button",{class:"btn",type:"button",text:"Valider",onclick:function(){ var vals=sels.map(function(s){return s.value}); if (vals.some(function(v){return !v})){ toast("Associe tous les éléments"); return; } var ok=q.paires.every(function(pr,i){return vals[i]===pr[1]}); p.st={vals:vals,ok:ok}; if (ok) p.good++; record(q,ok); draw(); }})]));
+      else { feedback(body, p.st.ok, q, null); nextBtn(body); }
+    } else if (type==="ordre"){
+      if (!q._cur){ var s; do { s=shuffle(q.items); } while (q.items.length>1 && s.join("|")===q.items.join("|")); q._cur=s; }
+      var ol=h("ol",{class:"order"});
+      q._cur.forEach(function(it,i){
+        var cls=p.st?(it===q.items[i]?"ok":"ko"):"";
+        ol.appendChild(h("li",{class:cls},[h("span",{class:"n2",text:String(i+1)}), h("span",{text:it}),
+          h("button",{type:"button","aria-label":"Monter",text:"↑",disabled:!!p.st||i===0,onclick:function(){ var a=q._cur; var t=a[i-1]; a[i-1]=a[i]; a[i]=t; draw(); }}),
+          h("button",{type:"button","aria-label":"Descendre",text:"↓",disabled:!!p.st||i===q._cur.length-1,onclick:function(){ var a=q._cur; var t=a[i+1]; a[i+1]=a[i]; a[i]=t; draw(); }})]));
+      });
+      body.appendChild(ol);
+      if (!p.st) body.appendChild(h("div",{class:"actions"},[h("button",{class:"btn",type:"button",text:"Valider l'ordre",onclick:function(){ var ok=q._cur.join("|")===q.items.join("|"); p.st={ok:ok}; if (ok) p.good++; record(q,ok); draw(); }})]));
+      else { feedback(body, p.st.ok, q, p.st.ok?null:q.items.join(" → ")); nextBtn(body); }
+    } else if (type==="redige"){
+      var wrap2=h("div",{class:"redige"});
+      var ta=h("textarea",{id:"redige-"+p.qi,placeholder:"Écris ta réponse avec tes mots…",disabled:!!(p.st&&p.st.self)});
+      ta.value=(p.st&&p.st.txt)||""; wrap2.appendChild(h("label",{class:"sr","for":"redige-"+p.qi,text:"Ta réponse"})); wrap2.appendChild(ta); body.appendChild(wrap2);
+      if (!p.st){ body.appendChild(h("div",{class:"actions"},[h("button",{class:"btn",type:"button",text:"Voir la réponse modèle",onclick:function(){ p.st={txt:ta.value}; draw(); }})])); }
+      else {
+        var pts=h("ul"); (q.points||[]).forEach(function(x){ pts.appendChild(h("li",{text:x})); });
+        body.appendChild(h("div",{class:"model"},[h("b",{text:"Réponse modèle (d'après le cours)"}), h("p",{text:q.modele}), (q.points||[]).length?h("p",{class:"empty2",style:"margin-top:.5rem",text:"Les points à retrouver :"}):null, pts]));
+        if (sampleFn && !p.st.self && (p.st.txt||"").trim().length>15){
+          var slot=h("div",{class:"ai-box"});
+          body.appendChild(h("div",{class:"actions",style:"justify-content:flex-start"},[h("button",{class:"btn ghost sm",type:"button",text:"Corriger avec l'assistante",onclick:function(e){ e.target.disabled=true; correctRedige(q, p.st.txt, slot); }})]));
+          body.appendChild(slot);
+        }
+        if (!p.st.self){
+          body.appendChild(h("p",{class:"q-text",style:"font-size:1rem",text:"Compare avec ta réponse : tu avais…"}));
+          body.appendChild(h("div",{class:"self"},[["tout","Tout bon"],["partie","Une partie"],["non","Pas trouvé"]].map(function(x){ return h("button",{class:"btn "+(x[0]==="tout"?"":"ghost"),type:"button",text:x[1],onclick:function(){ p.st.self=x[0]; var ok=x[0]==="tout"; if (ok) p.good++; else if (x[0]==="partie") p.good+=0.5; record(q, ok); draw(); }}); })));
+        } else nextBtn(body);
+      }
+    }
+  }
   function finish(){
-    var p=play, n=p.quiz.length, pct=Math.round(p.good/n*100), st=starsFor(pct), prev=D.lecons[p.id]||{}, first=!prev.stars;
-    var gain=p.good*10+(st>0&&first?20:0)+(st===3&&(prev.stars||0)<3?10:0);
-    D.xp+=gain; D.lecons[p.id]={stars:Math.max(st,prev.stars||0),best:Math.max(pct,prev.best||0)};
-    var nouveaux=[];
-    function g(id){ var x=give(id); if(x) nouveaux.push(x); }
-    if (st>0) g("premier-pas"); if (pct===100) g("sans-faute");
-    var sk=streak(); if (sk>=3) g("serie-3"); if (sk>=7) g("serie-7");
-    if (p.kind==="boss" && pct>=80) g("parcours");
-    save();
+    var p=play, n=p.quiz.length, pct=n?Math.round(p.good/n*100):100, st=starsFor(pct), nouveaux=[], gain=0;
+    var mult=p.niv===3?2:p.niv===2?1.5:1;
+    function give(id){ P.badges=P.badges||[]; if (P.badges.indexOf(id)<0){ P.badges.push(id); nouveaux.push((BADGES.find(function(b){return b[0]===id})||[0,id])[1]); } }
+    if (p.kind==="lecon"||p.kind==="boss"){
+      var prev=P.lecons[p.id]||{}, first=!prev.stars;
+      gain=Math.round(p.good*10*mult)+(st>0&&first?20:0)+(st===3&&(prev.stars||0)<3?10:0);
+      P.lecons=Object.assign({},P.lecons); P.lecons[p.id]={stars:Math.max(st,prev.stars||0), best:Math.max(pct,prev.best||0)};
+      if (p.kind==="lecon" && st>0){ var j=jourNow(); j.l=(j.l||0)+1; }
+      if (st>0) give("premier-pas"); if (n && pct===100) give("sans-faute");
+      if (p.kind==="lecon" && p.niv===3 && st>0) give("expert");
+      if (p.kind==="boss" && pct>=80) give("grand-quiz");
+      var cid=p.kind==="boss"?p.cours:p.lecon.cours;
+      if (cid && lessonsOf(cid).every(function(l){ return (lp(l,1).stars||0)>0; })) give("cours-complet");
+    } else {
+      gain=Math.round(p.good*5);
+      if (p.kind==="avant"){ P.avant=Object.assign({},P.avant); P.avant[p.avantKey]=true; var j2=jourNow(); j2.a=(j2.a||0)+1; gain+=15; }
+    }
+    P.xp=(P.xp||0)+gain;
+    var sk=streak(); if (sk>=3) give("serie-3"); if (sk>=7) give("serie-7");
+    saveP();
     p.phase="fin";
+    var unlock = p.kind==="lecon" && p.niv<3 && pct>=80 && quizOf(p.lecon,p.niv+1).length ? "Niveau "+NIVLAB[p.niv+1][0]+" débloqué !" : null;
     p.res=h("div",{class:"result"},[starsEl(st,"big-stars"), h("h3",{text:st===3?"Parfait !":st===2?"Très bien !":st===1?"C'est validé !":"On recommence ?"}),
-      h("p",{text:p.good+" bonne"+(p.good>1?"s":"")+" réponse"+(p.good>1?"s":"")+" sur "+n}), h("span",{class:"gain",text:"+"+gain+" XP"}),
+      n?h("p",{text:(Math.round(p.good*10)/10)+" bonne"+(p.good>1?"s":"")+" réponse"+(p.good>1?"s":"")+" sur "+n}):null, h("span",{class:"gain",text:"+"+gain+" XP"}),
+      unlock?h("p",{class:"newb",text:unlock}):null,
       nouveaux.length?h("p",{class:"newb",text:"Nouveau badge : "+nouveaux.join(", ")}):null,
-      st===0?h("p",{class:"lead-hand",style:"margin-top:.6rem",text:"Il faut au moins la moitié des réponses pour débloquer la suite. Relis les cartes et réessaie !"}):null,
-      h("div",{class:"actions",style:"justify-content:center"},[h("button",{class:"btn ghost",type:"button",text:"Recommencer",onclick:function(){ if(p.kind==="boss") startBoss(p.module); else startLesson(p.module,p.lecon); }}),
-        h("button",{class:"btn",type:"button",text:"Retour au parcours",onclick:quit})])]);
-    draw(); if (st>=2) confetti(); renderStats();
+      p.kind==="lecon" && pct<80 && p.niv<3 ? h("p",{class:"lead-hand",style:"margin-top:.6rem",text:"Il faut 80 % pour débloquer le niveau suivant."}) : null,
+      h("div",{class:"actions",style:"justify-content:center"},[
+        p.kind==="lecon"||p.kind==="boss" ? h("button",{class:"btn ghost",type:"button",text:"Recommencer",onclick:function(){ if (p.kind==="boss") startBoss(p.cours); else startLesson(p.lecon,p.niv); }}) : null,
+        h("button",{class:"btn",type:"button",text:"Retour",onclick:quit})])]);
+    draw(); if (st>=2) confetti(); renderHome();
   }
   function confetti(){
     try { if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return; } catch(e){}
@@ -499,81 +948,220 @@ var MATIERES = C.matieres, HADITHS = C.hadiths, MODULES = C.modules;
     document.body.appendChild(c); setTimeout(function(){ c.remove(); },2600);
   }
 
-  /* ——— hadiths ——— */
-  function renderHadiths(){
-    var chips=$("h-chips"); chips.textContent="";
-    [["tout","Tous"],["a-apprendre","À apprendre"],["connus","Par cœur"]].forEach(function(c){
-      chips.appendChild(h("button",{class:"chip",type:"button","aria-pressed":hFilter===c[0]?"true":"false",text:c[1],onclick:function(){ hFilter=c[0]; renderHadiths(); }})); });
-    var box=$("hadiths"); box.textContent="";
-    var list=HADITHS.filter(function(x){ var k=D.connus.indexOf(x.n)>=0; return hFilter==="tout" || (hFilter==="connus"?k:!k); });
-    if (!list.length){ box.appendChild(h("p",{class:"notice",text:hFilter==="connus"?"Pas encore de hadith appris par cœur : choisis-en un et lance-toi !":"Bravo, tu les connais tous !"})); return; }
-    list.forEach(function(x){
-      var k=D.connus.indexOf(x.n)>=0;
-      var cb=h("input",{type:"checkbox",id:"k-"+x.n,checked:k,onchange:function(){
-        if (cb.checked){ if (D.connus.indexOf(x.n)<0) D.connus.push(x.n); D.xp+=15; toast("+15 XP · hadith n° "+x.n+" appris"); if (D.connus.length>=5){ var b=give("par-coeur-5"); if(b) toast("Nouveau badge : "+b); } }
-        else D.connus=D.connus.filter(function(m){return m!==x.n;});
-        save(); renderAll(); }});
-      box.appendChild(h("article",{class:"hcard"+(k?" known":"")},[h("span",{class:"num",text:"n° "+x.n}), h("div",{class:"theme",text:x.theme}),
-        h("span",{class:"ar",lang:"ar",text:x.arabe}), h("span",{class:"fr",text:x.fr}), h("span",{class:"ref",text:x.rawi+" · "+x.source}),
-        h("label",{class:"check","for":"k-"+x.n},[cb," je le connais par cœur"])]));
+  /* ═══════════ ASSISTANTE : uniquement à partir des textes ═══════════ */
+  var STOP={"les":1,"des":1,"une":1,"est":1,"que":1,"qui":1,"pour":1,"dans":1,"par":1,"sur":1,"pas":1,"son":1,"ses":1,"aux":1,"avec":1,"cette":1,"ces":1,"mais":1,"elle":1,"ils":1,"leur":1,"tout":1,"comme":1,"plus":1,"quoi":1,"pourquoi":1,"comment":1,"quel":1,"quelle":1,"quels":1,"quelles":1,"dit":1,"dire":1,"faut":1,"fait":1,"cours":1,"veut":1,"the":1,"and":1};
+  function fold(s){ return (s||"").normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase().replace(/[ً-ٰٟۖ-ۭـ]/g,"").replace(/[أإآٱ]/g,"ا").replace(/ى/g,"ي").replace(/ة/g,"ه"); }
+  function squash(s){ return fold(s).replace(/[«»"“”'’‘`(),.;:!?…\-–—\[\]]/g," ").replace(/\s+/g," ").trim(); }
+  function arSkel(s){ return (s||"").replace(/[ً-ٰٟۖ-ۭـ]/g,"").replace(/[ٱأإآءؤئا]/g,"").replace(/ى/g,"ي").replace(/ة/g,"ه").replace(/[^ء-ي]/g,""); }
+  function tokens(s){ return squash(s).split(" ").filter(function(w){ return w.length>=3 && !STOP[w]; }); }
+  function corpus(mat, leconId){
+    var out=[], cmap={}; S.cours.forEach(function(c){ cmap[c.id]=c; });
+    S.sources.forEach(function(s){ var c=cmap[s.cours]||{}; if (mat!=="tout" && s.matiere!==mat) return; out.push({label:matName(s.matiere)+" · cours "+(c.numero||"")+" · ⏱ "+(s.t||""), text:s.texte, kind:"cours", lecon:null}); });
+    S.lecons.forEach(function(l){ var c=cmap[l.cours]||{}; if (mat!=="tout" && c.matiere!==mat) return; (l.cartes||[]).forEach(function(k){ out.push({label:"Leçon « "+l.titre+" » · "+(k.titre||""), text:(k.arabe?k.arabe+" — ":"")+(k.texte||""), kind:"lecon", lecon:l.id}); }); });
+    S.textes.forEach(function(t){ if (mat!=="tout" && t.matiere && t.matiere!==mat) return; out.push({label:(TYPES[t.type]||"Texte")+" · "+(t.ref||""), text:(t.arabe||"")+" — "+(t.fr||""), kind:"texte", lecon:null}); });
+    S.lexique.forEach(function(w){ if (mat!=="tout" && w.matiere!==mat) return; out.push({label:"Lexique · "+w.mot, text:w.mot+" ("+(w.arabe||"")+") : "+(w.sens||""), kind:"lexique", lecon:null}); });
+    return out;
+  }
+  function retrieve(question, mat, leconId){
+    var all=corpus(mat), qt=tokens(question), df={};
+    all.forEach(function(p){ var seen={}; tokens(p.text+" "+p.label).forEach(function(w){ if (!seen[w]){ seen[w]=1; df[w]=(df[w]||0)+1; } }); });
+    var N=all.length||1;
+    all.forEach(function(p){ var tt=tokens(p.text+" "+p.label), sc=0; qt.forEach(function(w){ var hit=tt.some(function(x){ return x===w || (w.length>=5 && x.indexOf(w.slice(0,5))===0); }); if (hit) sc+=Math.log(1+N/(df[w]||1)); }); if (leconId && p.lecon===leconId) sc+=2; p.score=sc; });
+    var top=all.filter(function(p){return p.score>0}).sort(function(a,b){return b.score-a.score}).slice(0,9);
+    top.forEach(function(p,i){ p.id="S"+(i+1); });
+    return top;
+  }
+  var RULES=["Tu es une assistante d'étude pour des cours de sciences islamiques. RÈGLES ABSOLUES, sans exception :",
+    "1. Tu réponds UNIQUEMENT à partir des EXTRAITS fournis. Tu n'utilises JAMAIS tes propres connaissances, même si tu crois connaître la réponse.",
+    "2. Tu ne cites jamais un verset, un hadith ou une parole de savant qui n'est pas écrit mot pour mot dans les extraits.",
+    "3. Tu ne donnes aucun avis religieux personnel ni fatwa. Si la question demande une règle, un avis ou une précision qui n'est pas explicitement dans les extraits, réponds trouve=false.",
+    "4. Si les extraits ne suffisent pas pour répondre, réponds trouve=false. Ne complète jamais avec autre chose.",
+    "5. Commence par 1 à 3 citations : des copies EXACTES (mot pour mot, sans rien changer) d'un passage d'un extrait, 280 caractères maximum chacune.",
+    "6. Puis 2 à 6 phrases d'explication simples, en français. Chaque phrase indique les identifiants des extraits qui la justifient.",
+    "Réponds uniquement avec ce JSON : {\"trouve\":true,\"citations\":[{\"id\":\"S1\",\"extrait\":\"...\"}],\"explication\":[{\"phrase\":\"...\",\"sources\":[\"S1\"]}],\"question_prof\":\"\"}",
+    "Si trouve=false : citations et explication vides, et question_prof = la question reformulée en une phrase à poser."].join("\n");
+  function verify(ans, passages){
+    var byId={}; passages.forEach(function(p){ byId[p.id]=p; });
+    var cits=(ans&&ans.citations||[]).filter(function(c){ var p=byId[c&&c.id]; if (!p || !c.extrait) return false; var e=squash(c.extrait); return e.length>=8 && squash(p.text).indexOf(e)>=0; });
+    var blocked=false, valid={}; cits.forEach(function(c){ valid[c.id]=1; }); passages.forEach(function(p){ valid[p.id]=valid[p.id]||0; });
+    var phrases=(ans&&ans.explication||[]).map(function(x){ return {phrase:String(x&&x.phrase||""), sources:(x&&x.sources||[]).filter(function(id){ return byId[id]; })}; }).filter(function(x){ return x.phrase && x.sources.length; });
+    var allAr=passages.map(function(p){return arSkel(p.text)}).join("|");
+    phrases.concat(cits.map(function(c){return {phrase:c.extrait}})).forEach(function(x){ (x.phrase.match(/[؀-ۿ][؀-ۿ\sً-ٟ]{6,}/g)||[]).forEach(function(seg){ var sk=arSkel(seg); if (sk.length>=4 && allAr.indexOf(sk)<0) blocked=true; }); });
+    return {cits:cits, phrases:phrases, blocked:blocked, byId:byId};
+  }
+  function askAI(question, slot, opts){
+    opts=opts||{}; slot.textContent="";
+    var mat=opts.mat||"tout", passages=retrieve(question, mat, opts.lecon);
+    var card=h("div",{class:"answer"},[opts.hideQ?null:h("p",{class:"askq",text:question})]); slot.appendChild(card);
+    if (!passages.length){ notFound(card, question, mat); return; }
+    var status=h("p",{class:"ai-status",text:"Je cherche dans tes textes…"}); card.appendChild(status);
+    var prompt=RULES+"\n\nQUESTION : "+question+"\n\nEXTRAITS :\n"+passages.map(function(p){ return "["+p.id+"] ("+p.label+") "+p.text.slice(0,1500); }).join("\n\n");
+    sampleFn.json(prompt,{modelTier:"default"}).then(function(ans){
+      status.remove();
+      var v=verify(ans, passages);
+      if (v.blocked){ card.appendChild(h("div",{class:"ai-warn",text:"Réponse bloquée : elle contenait un texte arabe introuvable dans tes textes vérifiés. Reformule ta question, ou pose-la au professeur."})); profBtn(card, question, mat); return; }
+      if (!ans || ans.trouve===false || !v.cits.length || !v.phrases.length){ notFound(card, (ans&&ans.question_prof)||question, mat); return; }
+      card.appendChild(h("h4",{text:"Ce que disent tes textes"}));
+      v.cits.forEach(function(c){ var p=v.byId[c.id], isAr=/[؀-ۿ]{3,}/.test(c.extrait) && !/[a-zA-Zéèà]{4,}/.test(c.extrait);
+        card.appendChild(h("div",{class:"cite"},[isAr?h("span",{class:"ar",lang:"ar",text:c.extrait}):h("q",{text:c.extrait}), h("span",{class:"lab",text:c.id+" · "+p.label})])); });
+      card.appendChild(h("h4",{text:"Explication"}));
+      var ex=h("div",{class:"expl"}); v.phrases.forEach(function(x){ var pp=h("p",{},[x.phrase]); x.sources.forEach(function(id){ pp.appendChild(h("span",{class:"srcid",title:v.byId[id].label,text:id})); }); ex.appendChild(pp); });
+      card.appendChild(ex);
+      card.appendChild(h("p",{class:"empty2",style:"margin-top:.6rem",text:"Chaque citation a été vérifiée mot pour mot dans tes textes. Pour une question de fond, demande à ton professeur."}));
+    }, function(e){
+      status.textContent = e && e.code==="not_granted" ? "L'assistante n'est pas autorisée sur cette page." : e && e.code==="rate_limited" ? "Trop de questions d'un coup : réessaie dans un moment." : "L'assistante n'a pas pu répondre. Réessaie dans un moment.";
     });
   }
+  function profBtn(card, q, mat){ card.appendChild(h("div",{class:"actions qprof",style:"justify-content:flex-start"},[h("button",{class:"btn sm",type:"button",text:"Ajouter aux questions à poser",onclick:function(e){ e.target.disabled=true; personal("notes","add",null,{texte:q, matiere:mat==="tout"?"":mat, question:true, cree:new Date().toISOString()}); toast("Question ajoutée dans Mes pensées"); }})])); }
+  function notFound(card, q, mat){ card.appendChild(h("div",{class:"ai-warn",text:"Je ne trouve pas cette réponse dans tes textes. Je préfère ne rien inventer."})); profBtn(card, q, mat); }
+  function correctRedige(q, txt, slot){
+    slot.textContent=""; var card=h("div",{class:"answer"}), status=h("p",{class:"ai-status",text:"L'assistante compare ta réponse avec la réponse du cours…"}); card.appendChild(status); slot.appendChild(card);
+    var prompt=["Tu corriges la réponse d'une étudiante. Tu te bases UNIQUEMENT sur la RÉPONSE MODÈLE et les POINTS ci-dessous, jamais sur tes propres connaissances. Tu ne cites aucun verset ni hadith.",
+      "Pour chaque point, dis s'il est présent dans la réponse de l'étudiante. Puis donne un conseil court et bienveillant (1 à 2 phrases) qui reprend uniquement des éléments de la réponse modèle.",
+      "Réponds uniquement avec ce JSON : {\"points\":[{\"point\":\"...\",\"present\":true}],\"conseil\":\"...\"}",
+      "QUESTION : "+q.q, "RÉPONSE MODÈLE : "+q.modele, "POINTS : "+(q.points||[]).join(" | "), "RÉPONSE DE L'ÉTUDIANTE : "+txt].join("\n");
+    sampleFn.json(prompt,{modelTier:"default"}).then(function(ans){
+      status.remove(); var ul=h("ul",{class:"list2"});
+      (ans&&ans.points||[]).forEach(function(x){ ul.appendChild(h("li",{},[h("span",{text:String(x.point||"")}), h("b",{text:x.present?"✓ présent":"✗ manquant"})])); });
+      card.appendChild(ul); if (ans&&ans.conseil && !/[؀-ۿ]{3,}/.test(ans.conseil)) card.appendChild(h("p",{style:"margin-top:.5rem",text:String(ans.conseil)}));
+    }, function(){ status.textContent="L'assistante n'a pas pu corriger. Compare avec la réponse modèle."; });
+  }
+  $("form-ask").addEventListener("submit", function(e){
+    e.preventDefault(); var q=$("ask-q").value.trim(); if (!q) return;
+    if (!sampleFn){ toast("L'assistante n'est disponible que dans ta bibliothèque ouverte depuis Claude."); return; }
+    var slot=h("div"); $("answers").prepend(slot); askAI(q, slot, {mat:$("ask-mat").value||"tout"}); $("ask-q").value="";
+  });
 
-  /* ——— devoirs & pensées ——— */
+  /* ═══════════ ORGANISATION ═══════════ */
+  function fillSelects(){
+    [["devoir-matiere",false],["note-matiere",true],["ev-matiere",true],["rat-matiere",false],["ask-mat","tout"]].forEach(function(x){
+      var sel=$(x[0]); if (!sel) return; var cur=sel.value; sel.textContent="";
+      if (x[1]==="tout") sel.appendChild(h("option",{value:"tout",text:"toutes les matières"})); else if (x[1]) sel.appendChild(h("option",{value:"",text:"—"}));
+      ordered().forEach(function(m){ sel.appendChild(h("option",{value:m.id,text:m.nom})); });
+      if (cur) sel.value=cur;
+    });
+    $("rat-rythme").value=String(P.rythme||2);
+  }
+  function renderOrga(){
+    var sc=$("sched"); sc.textContent="";
+    ordered().forEach(function(m){
+      var js=h("select",{id:"j-"+m.id,"aria-label":"Jour du cours de "+m.nom,disabled:!db||canWrite===false,onchange:function(e){ var v=e.target.value; writeShared(function(){ return db.doc("matieres/"+m.id).update({jour: v===""?null:+v}); }); }},[h("option",{value:"",text:"jour ?"})].concat(JOURS.map(function(j,i){ return h("option",{value:String(i),text:j}); })));
+      js.value=(m.jour===undefined||m.jour===null)?"":String(m.jour);
+      var hs=h("input",{type:"time",id:"h-"+m.id,"aria-label":"Heure du cours de "+m.nom,value:m.heure||"",disabled:!db||canWrite===false,onchange:function(e){ var v=e.target.value; writeShared(function(){ return db.doc("matieres/"+m.id).update({heure:v}); }); }});
+      sc.appendChild(h("div",{class:"sched-row"},[h("b",{text:m.nom}), js, hs]));
+    });
+    var el=$("ev-list"); el.textContent="";
+    var evs=S.evenements.slice().sort(function(a,b){return (a.date||"").localeCompare(b.date||"")}).filter(function(e){ var d=parseDay(e.date); return d && d>=addDays(today(),-1); });
+    if (!evs.length) el.appendChild(h("li",{},[h("span",{class:"empty2",text:"Aucun rendez-vous à venir (QCM, examen…)."})]));
+    evs.forEach(function(e){ el.appendChild(h("li",{},[h("span",{},[e.titre, h("span",{class:"sub2",text:[matName(e.matiere), fmtDay(e.date)].filter(Boolean).join(" · ")})]), h("button",{class:"del",type:"button","aria-label":"Supprimer",text:"✕",onclick:function(){ personal("evenements","delete",e.id); }})])); });
+    // rattrapage
+    var rl=$("rat-list"); rl.textContent="";
+    var tot=S.rattrapage.length, done=S.rattrapage.filter(function(x){return x.fait}).length;
+    if (!tot){ rl.appendChild(h("p",{class:"notice",text:"Indique les cours que tu as manqués : ils seront répartis automatiquement sur les semaines à venir."})); return; }
+    var sch=ratSchedule(), endD=sch.length?sch[sch.length-1].date:null;
+    rl.appendChild(h("div",{class:"progress-line"},[h("span",{text:done+"/"+tot+" rattrapés"}), h("span",{class:"bar"},[h("i",{style:"width:"+Math.round(done/tot*100)+"%"})]), endD?h("b",{text:"fin prévue : "+fmtDay(endD)}):h("b",{text:"terminé !"})]));
+    var ul=h("ul",{class:"todo"});
+    sch.forEach(function(r){ var x=r.item;
+      var cb=h("input",{type:"checkbox",id:"rt-"+x.id,onchange:function(){ personal("rattrapage","update",x.id,{fait:true}); toast("Bravo, un cours de rattrapé !"); }});
+      ul.appendChild(h("li",{},[cb, h("label",{class:"what","for":"rt-"+x.id},[matName(x.matiere)+" · cours "+x.numero, h("span",{class:"sub",text:"prévu "+fmtDay(r.date)})]), h("button",{class:"del",type:"button","aria-label":"Retirer",text:"✕",onclick:function(){ personal("rattrapage","delete",x.id); }})])); });
+    S.rattrapage.filter(function(x){return x.fait}).sort(byNum).forEach(function(x){
+      var cb=h("input",{type:"checkbox",id:"rt-"+x.id,checked:true,onchange:function(){ personal("rattrapage","update",x.id,{fait:false}); }});
+      ul.appendChild(h("li",{class:"done"},[cb, h("label",{class:"what","for":"rt-"+x.id},[matName(x.matiere)+" · cours "+x.numero, h("span",{class:"sub",text:"rattrapé"})]), h("span")])); });
+    rl.appendChild(ul);
+  }
+  $("form-ev").addEventListener("submit", function(e){ e.preventDefault(); var t=$("ev-titre").value.trim(), d=$("ev-date").value; if (!t||!d) return; personal("evenements","add",null,{titre:t, matiere:$("ev-matiere").value||"", date:d}); $("ev-titre").value=""; $("ev-date").value=""; });
+  $("form-rat").addEventListener("submit", function(e){
+    e.preventDefault(); var m=$("rat-matiere").value, a=+$("rat-from").value, b=+$("rat-to").value; if (!m||!a||!b) return; if (b<a){ var t=a; a=b; b=t; }
+    if (b-a>60){ toast("60 cours maximum à la fois"); return; }
+    for (var n=a;n<=b;n++){ if (!S.rattrapage.some(function(x){return x.matiere===m && x.numero===n})) personal("rattrapage","add",null,{matiere:m, numero:n, fait:false}); }
+  });
+  $("rat-rythme").addEventListener("change", function(e){ P.rythme=+e.target.value; saveP(); renderOrga(); renderHome(); });
+
   function renderDevoirs(){
     var box=$("devoirs-list"); box.textContent="";
-    if (!D.devoirs.length){ box.appendChild(h("p",{class:"notice",text:"Aucun devoir pour l'instant. Ajoute-le ci-dessus."})); return; }
+    if (!S.devoirs.length){ box.appendChild(h("p",{class:"notice",text:"Aucun devoir pour l'instant."})); return; }
     var t=today(), late=[], soon=[], done=[];
-    D.devoirs.forEach(function(d){ if(d.fait) done.push(d); else { var x=parseDay(d.echeance); (x&&x<t?late:soon).push(d); } });
-    [["En retard",late,"late"],["À faire",soon,""],["Faits",done,"done"]].forEach(function(gp){
-      if (!gp[1].length) return; var ul=h("ul",{class:"todo"});
-      gp[1].sort(function(a,b){return (a.echeance||"9999").localeCompare(b.echeance||"9999")}).forEach(function(d){
-        var cb=h("input",{type:"checkbox",id:"dv-"+d.id,checked:!!d.fait,onchange:function(){ d.fait=cb.checked; if (cb.checked){ D.xp+=5; toast("+5 XP · devoir terminé"); } save(); renderAll(); }});
-        ul.appendChild(h("li",{class:gp[2]},[cb, h("label",{class:"what","for":"dv-"+d.id},[d.titre, h("span",{class:"sub",text:[d.matiere, d.echeance?"pour "+fmtDay(d.echeance):"sans date"].filter(Boolean).join(" · ")})]),
-          h("button",{class:"del",type:"button","aria-label":"Supprimer ce devoir",text:"✕",onclick:function(){ D.devoirs=D.devoirs.filter(function(x){return x.id!==d.id}); save(); renderAll(); }})]));
+    S.devoirs.forEach(function(d){ if (d.fait) done.push(d); else { var x=parseDay(d.echeance); (x&&x<t?late:soon).push(d); } });
+    [["En retard",late,"late"],["À faire",soon,""],["Faits",done,"done"]].forEach(function(g){
+      if (!g[1].length) return; var ul=h("ul",{class:"todo"});
+      g[1].sort(function(a,b){return (a.echeance||"9999").localeCompare(b.echeance||"9999")}).forEach(function(d){
+        var cb=h("input",{type:"checkbox",id:"dv-"+d.id,checked:!!d.fait,onchange:function(){ personal("devoirs","update",d.id,{fait:cb.checked}); }});
+        ul.appendChild(h("li",{class:g[2]},[cb, h("label",{class:"what","for":"dv-"+d.id},[d.titre||"", h("span",{class:"sub",text:[matName(d.matiere), d.echeance?"pour "+fmtDay(d.echeance):"sans date"].filter(Boolean).join(" · ")})]),
+          h("button",{class:"del",type:"button","aria-label":"Supprimer ce devoir",text:"✕",onclick:function(){ personal("devoirs","delete",d.id); }})]));
       });
-      box.appendChild(h("div",{class:"group"},[h("h3",{text:gp[0]}), ul]));
+      box.appendChild(h("div",{class:"group"},[h("h3",{text:g[0]}), ul]));
     });
   }
+  $("form-devoir").addEventListener("submit", function(e){ e.preventDefault(); var t=$("devoir-titre").value.trim(); if (!t) return; personal("devoirs","add",null,{titre:t, matiere:$("devoir-matiere").value||"", echeance:$("devoir-date").value||"", fait:false, cree:new Date().toISOString()}); $("devoir-titre").value=""; $("devoir-date").value=""; });
+
+  /* ═══════════ PENSÉES ═══════════ */
   function renderNotes(){
+    var ch=$("note-chips"); ch.textContent="";
+    var nq=S.notes.filter(function(n){return n.question && !n.repondu}).length;
+    [["tout","Toutes"],["q","Questions à poser"+(nq?" ("+nq+")":"")]].forEach(function(x){ ch.appendChild(h("button",{class:"chip",type:"button","aria-pressed":noteFilter===x[0]?"true":"false",text:x[1],onclick:function(){ noteFilter=x[0]; renderNotes(); }})); });
     var box=$("notes-grid"); box.textContent="";
-    if (!D.notes.length){ box.appendChild(h("p",{class:"notice",style:"grid-column:1/-1",text:"Pas encore de pensée épinglée."})); return; }
-    D.notes.slice().sort(function(a,b){return b.cree.localeCompare(a.cree)}).forEach(function(n){
-      var d=new Date(n.cree).toLocaleDateString("fr-FR",{day:"numeric",month:"short"});
-      box.appendChild(h("article",{class:"postit"},[h("p",{text:n.texte}), h("div",{class:"foot"},[h("span",{text:[n.matiere,d].filter(Boolean).join(" · ")}),
-        h("button",{class:"del",type:"button","aria-label":"Retirer cette pensée",text:"✕",onclick:function(){ D.notes=D.notes.filter(function(x){return x.id!==n.id}); save(); renderAll(); }})])]));
+    var list=S.notes.filter(function(n){ return noteFilter==="tout" || n.question; });
+    if (!list.length){ box.appendChild(h("p",{class:"notice",style:"grid-column:1/-1",text: noteFilter==="q" ? "Aucune question en attente à poser." : "Pas encore de pensée épinglée."})); return; }
+    list.slice().sort(function(a,b){return (b.cree||"").localeCompare(a.cree||"")}).forEach(function(n){
+      var d=n.cree?new Date(n.cree).toLocaleDateString("fr-FR",{day:"numeric",month:"short"}):"";
+      box.appendChild(h("article",{class:"postit"+(n.question?" q":"")},[n.question?h("span",{class:"qtag",text:"question à poser"}):null, h("p",{class:n.repondu?"done-q":"",text:n.texte||""}),
+        h("div",{class:"foot"},[h("span",{text:[matName(n.matiere), d].filter(Boolean).join(" · ")}),
+          h("span",{},[n.question?h("button",{class:"del",type:"button",title:n.repondu?"Remettre en attente":"Marquer comme répondue",text:n.repondu?"↺":"✓",onclick:function(){ personal("notes","update",n.id,{repondu:!n.repondu}); }}):null,
+            h("button",{class:"del",type:"button","aria-label":"Retirer",text:"✕",onclick:function(){ personal("notes","delete",n.id); }})])])]));
     });
   }
-  $("form-devoir").addEventListener("submit",function(e){ e.preventDefault(); var t=$("devoir-titre").value.trim(); if(!t) return;
-    D.devoirs.push({id:uid(),titre:t,matiere:$("devoir-matiere").value.trim(),echeance:$("devoir-date").value||"",fait:false}); save();
-    $("devoir-titre").value=""; $("devoir-date").value=""; renderAll(); });
-  $("form-note").addEventListener("submit",function(e){ e.preventDefault(); var t=$("note-texte").value.trim(); if(!t) return;
-    D.notes.push({id:uid(),texte:t,matiere:$("note-matiere").value.trim(),cree:new Date().toISOString()}); save(); $("note-texte").value=""; renderAll(); });
+  $("form-note").addEventListener("submit", function(e){ e.preventDefault(); var t=$("note-texte").value.trim(); if (!t) return; personal("notes","add",null,{texte:t, matiere:$("note-matiere").value||"", question:$("note-q").checked, cree:new Date().toISOString()}); $("note-texte").value=""; $("note-q").checked=false; });
 
-  /* ——— sauvegarde ——— */
-  $("btn-save").addEventListener("click",function(){
-    var blob=new Blob([JSON.stringify(D,null,1)],{type:"application/json"}), a=document.createElement("a");
-    a.href=URL.createObjectURL(blob); a.download="carnet-hadiths-"+dayKey()+".json"; document.body.appendChild(a); a.click(); a.remove();
-    setTimeout(function(){ URL.revokeObjectURL(a.href); },1000); toast("Sauvegarde téléchargée");
-  });
-  $("file-restore").addEventListener("change",function(e){
-    var f=e.target.files[0]; if(!f) return; var r=new FileReader();
-    r.onload=function(){ try { var v=JSON.parse(r.result); if(typeof v!=="object"||v===null||!("xp" in v)) throw 0; D=Object.assign(blank(),v); save(); renderAll(); toast("Progression restaurée"); } catch(err){ toast("Ce fichier n'est pas une sauvegarde du carnet"); } e.target.value=""; };
-    r.readAsText(f);
-  });
-  $("btn-name").addEventListener("click",function(){ D.prenom=""; save(); play=null; show("apprendre"); renderAll(); });
-
-  /* ——— vues ——— */
-  var VIEWS=["apprendre","hadiths","devoirs","pensees"];
-  function show(v){ if (VIEWS.indexOf(v)<0) v="apprendre"; VIEWS.forEach(function(x){ $("view-"+x).hidden=x!==v; $("tab-"+x).setAttribute("aria-selected",x===v?"true":"false"); }); try{ history.replaceState(null,"","#"+v); }catch(e){} }
-  document.querySelectorAll(".tab").forEach(function(t){ t.addEventListener("click",function(){ show(t.dataset.view); }); });
-  function renderAll(){
-    $("title").textContent = D.prenom ? "Le carnet de "+D.prenom : "Mon carnet";
-    document.title = D.prenom ? "Le carnet de "+D.prenom : "Mon carnet de religion";
-    renderStats(); renderGame(); renderHadiths(); renderDevoirs(); renderNotes();
+  /* ═══════════ LEXIQUE & TEXTES ═══════════ */
+  function chips(container, list, current, onPick){ container.textContent=""; list.forEach(function(it){ container.appendChild(h("button",{class:"chip",type:"button","aria-pressed":current===it[0]?"true":"false",text:it[1],onclick:function(){ onPick(it[0]); }})); }); }
+  function renderLexique(){
+    var mats=[["tout","Tout"]].concat(ordered().filter(function(m){return S.lexique.some(function(w){return w.matiere===m.id})}).map(function(m){return [m.id,m.nom]}));
+    chips($("lex-chips"), mats, lexMat, function(v){ lexMat=v; renderLexique(); });
+    var q=($("lex-q").value||"").trim().toLowerCase(), box=$("words"); box.textContent="";
+    if (!loaded.lexique) return;
+    var list=S.lexique.filter(function(w){ if (lexMat!=="tout" && w.matiere!==lexMat) return false; return !q || [w.mot,w.arabe,w.sens].join(" ").toLowerCase().indexOf(q)>=0; }).sort(function(a,b){return (a.mot||"").localeCompare(b.mot||"","fr")});
+    if (!list.length){ box.appendChild(h("p",{class:"notice",style:"grid-column:1/-1",text:S.lexique.length?"Aucun mot ne correspond.":"Le lexique se remplit à chaque nouveau cours."})); return; }
+    list.forEach(function(w){ box.appendChild(h("div",{class:"word"},[w.arabe?h("span",{class:"ar",lang:"ar",text:w.arabe}):null, h("b",{text:w.mot||""}), h("span",{text:w.sens||""}), w.source?h("span",{class:"src",text:w.source}):null])); });
   }
-  show((location.hash||"").replace("#","")); renderAll();
+  function renderTextes(){
+    var types=[["tout","Tout"]].concat(Object.keys(TYPES).filter(function(k){return S.textes.some(function(t){return t.type===k})}).map(function(k){return [k,TYPES[k]+"s"]}));
+    chips($("txt-chips"), types, txtType, function(v){ txtType=v; renderTextes(); });
+    var box=$("texts"); box.textContent=""; if (!loaded.textes) return;
+    var list=S.textes.filter(function(t){ return txtType==="tout" || t.type===txtType; }).sort(function(a,b){return (a.ordre||0)-(b.ordre||0)});
+    if (!list.length){ box.appendChild(h("p",{class:"notice",text:"Les versets et hadiths étudiés en cours s'ajoutent ici."})); return; }
+    list.forEach(function(t){ box.appendChild(h("div",{class:"text"},[h("span",{class:"type",text:TYPES[t.type]||"Texte"}), t.arabe?h("span",{class:"ar",lang:"ar",text:t.arabe}):null, t.fr?h("span",{class:"fr",text:t.fr}):null, t.ref?h("span",{class:"ref",text:t.ref}):null])); });
+  }
+  $("lex-q").addEventListener("input", renderLexique);
+
+  function render(){ fillSelects(); renderHome(); renderShelves(); renderGame(); renderOrga(); renderDevoirs(); renderNotes(); renderLexique(); renderTextes(); }
+
+  /* ═══════════ démarrage ═══════════ */
+  show((location.hash||"").replace("#",""));
+  loadLocalP(); render();
+  if (!window.carnetRT || !window.carnetRT.use){ db=false; canWrite=false; useLocal(); return; }
+  window.carnetRT.use("sample").then(function(s){ sampleFn=s||null; }, function(){ sampleFn=null; });
+  window.carnetRT.use("db").then(function(d){
+    if (!d){ db=false; canWrite=false; useLocal(); return; }
+    db=d;
+    SHARED.forEach(function(name){
+      db.collection(name).onSnapshot(function(snap){ S[name]=snap.docs.map(function(x){ var o=Object.assign({},x.data()); o.id=x.id; return o; }); loaded[name]=true; if (!play) render(); else { renderHome(); } }, function(){ loaded[name]=true; render(); });
+    });
+    window.carnetRT.use("user").then(function(u){
+      if (!u) return [null,false];
+      return Promise.all([u.id(), u.isOwner().catch(function(){return false}), u.can("data.write").catch(function(){return null})]).then(function(r){ return [r[0], r[1]?true:r[2]]; });
+    }).then(function(r){
+      var uid=r[0]; canWrite=r[1];
+      if (!uid || canWrite===false){ canWrite=false; useLocal(); return; }
+      mine=db.doc("data/users/"+uid+"/espace");
+      PERSO.forEach(function(k){ mineUnsubs.push(mine.collection(k).onSnapshot(function(snap){ S[k]=snap.docs.map(function(x){ var o=Object.assign({},x.data()); o.id=x.id; return o; }); loaded[k]=true; if (!play) render(); else renderHome(); }, function(){ useLocal(); })); });
+      progRef=db.doc("data/users/"+uid+"/progress");
+      progRef.onSnapshot(function(snap){
+        if (snap.exists){ P=Object.assign(blankP(), clone(snap.data())); }
+        else if ((P.xp||0)>0) saveP();
+        if (!play){ renderGame(); } renderHome(); fillSelects();
+      }, function(){ progRef=null; });
+    }, function(){ canWrite=false; useLocal(); });
+  }, function(){ db=false; canWrite=false; useLocal(); });
 })();
 </script>
-</body>
-</html>
+
