@@ -22,6 +22,23 @@
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://rahochainez1-art.github.io/Religion-organization/">
 <meta name="twitter:card" content="summary_large_image">
+<style>
+.lk-pill{position:absolute;right:0;top:0;border:1.5px solid var(--pink-deep);background:var(--paper);color:var(--ink);border-radius:2rem;padding:.2rem .75rem;font-weight:800;font-size:.8rem;cursor:pointer}
+.lk-pill.on{background:var(--pink-deep);color:var(--paper)}
+@media (max-width:700px){header{padding-top:2rem}.lk-pill{top:.1rem;right:0}}
+.lk,.docview{position:fixed;inset:0;z-index:80;background:rgba(73,51,47,.35);display:grid;place-items:center;padding:16px}
+.lk-card{background:var(--paper);border-radius:18px;padding:1.3rem 1.2rem;max-width:24rem;width:100%;display:grid;gap:.7rem;text-align:center}
+.lk-card h2{font-family:var(--f-title);color:var(--pink-deep);font-size:2rem;margin:0}
+.lk-card p{font-size:.92rem;color:var(--ink-soft)}
+.lk-form{display:grid;gap:.5rem;text-align:left}
+.lk-form label{font-weight:800;font-size:.85rem}
+.lk-form input{border:1.5px solid var(--pink-deep);border-radius:10px;padding:.65rem .7rem;font-size:16px;background:var(--paper)}
+.lk-form .btn{padding:.7rem}
+.lk-msg{min-height:1.2em;font-size:.88rem;color:var(--pink-deep);text-align:center}
+.docview{display:flex;flex-direction:column;padding:0;background:var(--paper);place-items:stretch}
+.docbar{display:flex;justify-content:space-between;align-items:center;gap:.6rem;padding:calc(.6rem + env(safe-area-inset-top,0px)) 16px .6rem;border-bottom:1.5px solid var(--pink);background:var(--pink-soft)}
+.docframe{flex:1;width:100%;border:0;background:#fff}
+</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Nunito:wght@400;600;700;800&family=Patrick+Hand&family=Amiri:wght@400;700&display=swap">
@@ -554,21 +571,47 @@ footer .ar{display:block;font-family:var(--f-ar);font-size:1.35rem;color:var(--p
 </nav>
 <div class="more" id="more" data-open="false"><div class="panel" role="menu" aria-label="Plus de rubriques"></div></div>
 <script src="contenu.js?v=5b4b53cc"></script>
+<script src="espace.js?v=ffa1c67e"></script>
 <script>
-/* Stockage local : même interface que la bibliothèque, données sur cet appareil */
+/* Stockage local + espace élève chiffré (AES-GCM, clé dérivée du mot de passe) */
 (function(){
-  var KEY="carnet-db-v1", SEED=window.SEED||{}, L={}, subs=[];
+  var KEY="carnet-db-v1", KK="carnet-espace-cle", L={}, subs=[];
   try{ L=JSON.parse(localStorage.getItem(KEY)||"{}")||{}; }catch(e){ L={}; }
+  function b64(s){ return Uint8Array.from(atob(s), function(c){ return c.charCodeAt(0); }); }
+  function ub64(a){ var s=""; new Uint8Array(a).forEach(function(x){ s+=String.fromCharCode(x); }); return btoa(s); }
+  function decryptWith(key){ var E=window.ESPACE; return crypto.subtle.decrypt({name:"AES-GCM",iv:b64(E.iv)}, key, b64(E.ct)).then(function(buf){ return JSON.parse(new TextDecoder().decode(buf)); }); }
+  function derive(pw){ var E=window.ESPACE; return crypto.subtle.importKey("raw", new TextEncoder().encode(pw), "PBKDF2", false, ["deriveKey"]).then(function(k){
+    return crypto.subtle.deriveKey({name:"PBKDF2",salt:b64(E.salt),iterations:E.it,hash:"SHA-256"}, k, {name:"AES-GCM",length:256}, true, ["decrypt"]); }); }
+  function merge(p){
+    var S=window.SEED, keep=function(arr,f){ return (arr||[]).filter(f); };
+    var hadL=keep(S.lecons,function(l){return l.cours==="nw-1"});
+    window.SEED={matieres:p.matieres.concat(keep(S.matieres,function(m){return m.id==="hadiths"})),
+      cours:p.cours.concat(keep(S.cours,function(c){return c.matiere==="hadiths"})),
+      lecons:p.lecons.concat(hadL), lexique:p.lexique.concat(keep(S.lexique,function(w){return w.matiere==="hadiths"})),
+      textes:p.textes.concat(keep(S.textes,function(t){return t.matiere==="hadiths"}))};
+    window.SEED_DOCS=p.docs||{}; window.ELEVE=true;
+  }
+  var stored=null; try{ stored=localStorage.getItem(KK); }catch(e){}
+  var ready = (stored && window.ESPACE && window.crypto && crypto.subtle)
+    ? crypto.subtle.importKey("raw", b64(stored), {name:"AES-GCM"}, false, ["decrypt"]).then(decryptWith).then(merge).catch(function(){ try{ localStorage.removeItem(KK); }catch(e){} })
+    : Promise.resolve();
+  window.carnetUnlock=function(pw){
+    if (!window.ESPACE || !window.crypto || !crypto.subtle) return Promise.reject(new Error("indispo"));
+    var key; return derive(pw).then(function(k){ key=k; return decryptWith(k); }).then(function(){ return crypto.subtle.exportKey("raw", key); })
+      .then(function(raw){ try{ localStorage.setItem(KK, ub64(raw)); }catch(e){} location.reload(); });
+  };
+  window.carnetLogout=function(){ try{ localStorage.removeItem(KK); }catch(e){} location.reload(); };
+
   function persist(){ try{ localStorage.setItem(KEY, JSON.stringify(L)); }catch(e){} }
   function split(p){ var i=p.lastIndexOf("/"); return [p.slice(0,i), p.slice(i+1)]; }
   function list(cp){
-    var out={}, base=SEED[cp]||[], over=L[cp]||{};
+    var out={}, base=(window.SEED||{})[cp]||[], over=L[cp]||{};
     base.forEach(function(d){ out[d.id]=Object.assign({}, d); });
     Object.keys(over).forEach(function(id){ if (over[id]===null) delete out[id]; else out[id]=Object.assign(out[id]||{}, over[id]); });
     return out;
   }
   function wrap(id,o){ var d=Object.assign({},o); delete d.id; return {id:id, exists:true, data:function(){ return JSON.parse(JSON.stringify(d)); }}; }
-  function notify(){ setTimeout(function(){ subs.forEach(function(s){ try{ s(); }catch(e){} }); }, 0); }
+  function notify(){ ready.then(function(){ subs.forEach(function(s){ try{ s(); }catch(e){} }); }); }
   function write(cp,id,data,mode){
     L[cp]=L[cp]||{};
     if (mode==="delete") L[cp][id]=null;
@@ -576,8 +619,9 @@ footer .ar{display:block;font-family:var(--f-ar);font-size:1.35rem;color:var(--p
     else L[cp][id]=Object.assign({}, L[cp][id]||{}, JSON.parse(JSON.stringify(data)));
     persist(); notify(); return Promise.resolve();
   }
+  function sub(f){ subs.push(f); ready.then(f); return function(){ subs=subs.filter(function(x){return x!==f}); }; }
   function col(cp){ return {
-    onSnapshot:function(cb){ var f=function(){ var m=list(cp); cb({docs:Object.keys(m).map(function(id){ return wrap(id,m[id]); })}); }; subs.push(f); setTimeout(f,0); return function(){ subs=subs.filter(function(x){return x!==f}); }; },
+    onSnapshot:function(cb){ return sub(function(){ var m=list(cp); cb({docs:Object.keys(m).map(function(id){ return wrap(id,m[id]); })}); }); },
     add:function(data){ var id="l"+Date.now().toString(36)+Math.random().toString(36).slice(2,6); return write(cp,id,data,"set").then(function(){ return {id:id}; }); },
     doc:function(id){ return doc(cp+"/"+id); }
   }; }
@@ -587,11 +631,48 @@ footer .ar{display:block;font-family:var(--f-ar);font-size:1.35rem;color:var(--p
     set:function(d){ return write(cp,id,d,"set"); },
     delete:function(){ return write(cp,id,null,"delete"); },
     collection:function(n){ return col(p+"/"+n); },
-    onSnapshot:function(cb){ var f=function(){ var m=list(cp); cb(m[id]?wrap(id,m[id]):{id:id,exists:false,data:function(){return undefined}}); }; subs.push(f); setTimeout(f,0); return function(){ subs=subs.filter(function(x){return x!==f}); }; }
+    onSnapshot:function(cb){ return sub(function(){ var m=list(cp); cb(m[id]?wrap(id,m[id]):{id:id,exists:false,data:function(){return undefined}}); }); }
   }; }
   var db={collection:col, doc:doc};
   var user={id:function(){return Promise.resolve("moi")}, isOwner:function(){return Promise.resolve(true)}, can:function(){return Promise.resolve(true)}};
   window.carnetRT={use:function(name){ return name==="db"?Promise.resolve(db):name==="user"?Promise.resolve(user):Promise.reject({code:"not_granted"}); }};
+
+  /* liens vers les fiches : ouverture dans la page */
+  function el(t,a,k){ var e=document.createElement(t); for (var x in (a||{})){ if (x==="text") e.textContent=a[x]; else if (x.slice(0,2)==="on") e.addEventListener(x.slice(2),a[x]); else e.setAttribute(x,a[x]); } (k||[]).forEach(function(c){ if (c) e.appendChild(c); }); return e; }
+  window.carnetLink=function(href,label){
+    if (String(href).indexOf("doc:")!==0) return el("a",{href:href,target:"_blank",rel:"noopener",text:label});
+    return el("a",{href:"#",text:label,onclick:function(e){ e.preventDefault(); openDoc(href.slice(4),label); }});
+  };
+  function openDoc(id,label){
+    var html=(window.SEED_DOCS||{})[id]; if (!html) return;
+    var fr=el("iframe",{title:label,class:"docframe"}); fr.srcdoc=html;
+    var ov=el("div",{class:"docview",role:"dialog","aria-modal":"true","aria-label":label},[
+      el("div",{class:"docbar"},[el("b",{text:label.replace(/^Ouvrir les /,"Les ")}), el("button",{type:"button",class:"btn sm",text:"Fermer",onclick:function(){ ov.remove(); document.body.style.overflow=""; }})]), fr]);
+    document.body.appendChild(ov); document.body.style.overflow="hidden";
+  }
+  /* en-tête : espace élève */
+  function unlockDialog(){
+    var msg=el("p",{class:"lk-msg",role:"status"}), inp=el("input",{type:"password",id:"lk-pw",autocomplete:"current-password",placeholder:"mot de passe"});
+    var go=el("button",{type:"submit",class:"btn",text:"Ouvrir mon espace"});
+    var form=el("form",{class:"lk-form",onsubmit:function(e){ e.preventDefault(); go.disabled=true; msg.textContent="Vérification…";
+      window.carnetUnlock(inp.value.trim()).catch(function(){ go.disabled=false; msg.textContent="Mot de passe incorrect."; inp.select(); }); }},
+      [el("label",{"for":"lk-pw",text:"Mot de passe"}), inp, go, msg]);
+    var ov=el("div",{class:"lk",role:"dialog","aria-modal":"true","aria-label":"Espace élève",onclick:function(e){ if (e.target===ov) ov.remove(); }},[
+      el("div",{class:"lk-card"},[el("h2",{text:"Espace élève"}), el("p",{text:"Tes cours de l'institut sont protégés par un mot de passe. Tu ne le tapes qu'une fois sur cet appareil."}), form,
+        el("button",{type:"button",class:"linkbtn",text:"Annuler",onclick:function(){ ov.remove(); }})])]);
+    document.body.appendChild(ov); setTimeout(function(){ inp.focus(); },50);
+  }
+  ready.then(function(){
+    function go(){
+      var h1=document.querySelector("header h1"), hd=document.querySelector("header"); if (!hd) return;
+      if (window.ELEVE){ h1.textContent="Ma bibliothèque"; document.title="Ma bibliothèque · Religion"; var k=document.querySelector(".kicker span"); if (k) k.textContent="Institut El Ihsan · espace élève"; }
+      var pill=el("button",{type:"button",class:"lk-pill"+(window.ELEVE?" on":""),text:window.ELEVE?"Espace élève ✓":"Espace élève",onclick:function(){
+        if (window.ELEVE){ if (confirmBox()) window.carnetLogout(); } else unlockDialog(); }});
+      hd.appendChild(pill);
+    }
+    function confirmBox(){ return window.confirm("Quitter ton espace élève sur cet appareil ? Il faudra retaper le mot de passe."); }
+    if (document.readyState==="loading") document.addEventListener("DOMContentLoaded", go); else go();
+  });
 })();
 </script>
 <script>
@@ -858,8 +939,8 @@ footer .ar{display:block;font-family:var(--f-ar);font-size:1.35rem;color:var(--p
   }
   function courseCard(c){
     var links=h("div",{class:"links"});
-    if (c.fiches) links.appendChild(h("a",{href:c.fiches,target:"_blank",rel:"noopener",text:"Ouvrir les fiches"}));
-    if (c.transcription) links.appendChild(h("a",{href:c.transcription,target:"_blank",rel:"noopener",text:"Cours détaillé + transcription"}));
+    if (c.fiches) links.appendChild(window.carnetLink(c.fiches,"Ouvrir les fiches"));
+    if (c.transcription) links.appendChild(window.carnetLink(c.transcription,"Cours détaillé + transcription"));
     if (lessonsOf(c.id).length) links.appendChild(h("a",{href:"#apprendre",text:"Jouer le parcours",onclick:function(e){ e.preventDefault(); show("apprendre"); }}));
     var seg=h("div",{class:"seg",role:"group","aria-label":"Avancement"});
     STATUTS.forEach(function(s){ seg.appendChild(h("button",{type:"button","aria-pressed":c.statut===s[0]?"true":"false",disabled:!db||canWrite===false,text:s[1],onclick:function(){ if (c.statut===s[0]) return; writeShared(function(){ return db.doc("cours/"+c.id).update({statut:s[0]}); }); }})); });
