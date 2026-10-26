@@ -626,7 +626,7 @@ nav.tabs .tab[aria-selected="true"]{background:var(--pink-deep);color:var(--pape
 </nav>
 <div class="more" id="more" data-open="false"><div class="panel" role="menu" aria-label="Plus de rubriques"></div></div>
 <script src="contenu.js?v=5b4b53cc"></script>
-<script src="espace.js?v=4fcab618"></script>
+<script src="espace.js?v=fefc5bcc"></script>
 <script>
 /* Stockage local + espace élève chiffré (AES-GCM, clé dérivée du mot de passe) */
 (function(){
@@ -647,6 +647,8 @@ nav.tabs .tab[aria-selected="true"]{background:var(--pink-deep);color:var(--pape
     window.SEED_DOCS=p.docs||{}; window.ELEVE=true;
   }
   var stored=null; try{ stored=localStorage.getItem(KK); }catch(e){}
+  var mk=(location.hash||"").match(/^#k=([A-Za-z0-9_-]+)/);
+  if (mk){ var k64=mk[1].replace(/-/g,"+").replace(/_/g,"/"); while (k64.length%4) k64+="="; stored=k64; try{ localStorage.setItem(KK,k64); }catch(e){} try{ history.replaceState(null,"",location.pathname+"#accueil"); }catch(e){} }
   if (window.OUVERT){ merge(window.OUVERT); window.ELEVE=false; }
   var ready = window.OUVERT ? Promise.resolve() : (stored && window.ESPACE && window.crypto && crypto.subtle)
     ? crypto.subtle.importKey("raw", b64(stored), {name:"AES-GCM"}, false, ["decrypt"]).then(decryptWith).then(merge).catch(function(){ try{ localStorage.removeItem(KK); }catch(e){} })
