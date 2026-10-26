@@ -420,7 +420,7 @@ footer .ar{display:block;font-family:var(--f-ar);font-size:1.35rem;color:var(--p
   .kpi span{font-size:.72rem;display:block;line-height:1.2;margin-top:.15rem}
   .mat > div{grid-template-columns:4.6rem 1fr 2.6rem;font-size:.9rem}
   footer{margin-top:1.6rem;font-size:.95rem}
-  .bnav{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--paper);border-top:1.5px solid var(--pink);padding:.35rem .25rem calc(.35rem + env(safe-area-inset-bottom,0px));box-shadow:0 -6px 18px rgba(73,51,47,.08)}
+  .bnav{display:grid;grid-template-columns:repeat(4,1fr);position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--paper);border-top:1.5px solid var(--pink);padding:.35rem .25rem calc(.35rem + env(safe-area-inset-bottom,0px));box-shadow:0 -6px 18px rgba(73,51,47,.08)}
   .bnav button{border:0;background:none;display:grid;justify-items:center;gap:.15rem;font-size:.68rem;font-weight:800;color:var(--ink-soft);padding:.15rem 0;cursor:pointer;-webkit-tap-highlight-color:transparent}
   .bnav .ic{display:grid;place-items:center;width:3.2rem;height:1.9rem;border-radius:1rem;transition:background .15s}
   .bnav svg{width:1.4rem;height:1.4rem}
@@ -432,6 +432,59 @@ footer .ar{display:block;font-family:var(--f-ar);font-size:1.35rem;color:var(--p
   .more .panel button{border:1.5px solid var(--pink);background:var(--pink-soft);border-radius:14px;padding:.85rem 1rem;text-align:left;font-weight:800;font-size:1rem;cursor:pointer}
   .more .panel button[aria-current="page"]{background:var(--pink);border-color:var(--pink-deep)}
 }
+
+/* ——— v3 : 4 pôles, tableau de bord ——— */
+.subbar[hidden]{display:none}
+.subbar{display:flex;gap:.4rem;overflow-x:auto;margin:1rem 0 0;padding-bottom:.2rem;scrollbar-width:none}
+.subbar .sb{flex:none;border:1.5px solid var(--pink-deep);background:var(--paper);border-radius:2rem;padding:.3rem .85rem;font-weight:800;font-size:.85rem;cursor:pointer;color:var(--ink)}
+.subbar .sb[aria-pressed="true"]{background:var(--pink-deep);color:var(--paper)}
+nav.tabs .tab[aria-selected="true"]{background:var(--pink-deep);color:var(--paper)}
+.dh-top{display:flex;justify-content:space-between;align-items:center;gap:.6rem}
+.dh-hello{font-family:var(--f-hand);font-size:1.15rem;color:var(--ink-soft)}
+.dh-stats{display:flex;gap:.4rem}
+.dh-st{display:inline-flex;align-items:center;gap:.25rem;background:var(--pink-soft);border-radius:2rem;padding:.2rem .65rem;color:var(--pink-deep)}
+.dh-st svg{width:1rem;height:1.1rem}.dh-st b{color:var(--ink);font-variant-numeric:tabular-nums}
+.dh-week{display:grid;grid-template-columns:repeat(7,1fr);gap:.35rem;margin-top:1rem;max-width:28rem}
+.dh-d{display:grid;justify-items:center;gap:.2rem;font-size:.7rem;font-weight:800;color:var(--ink-soft)}
+.dh-d i{width:2.3rem;height:2.3rem;border-radius:50%;display:grid;place-items:center;font-style:normal;background:#f6eaee;font-size:.78rem;font-weight:800;color:var(--ink)}
+.dh-d i svg{width:1.05rem;height:1.25rem;color:var(--pink-deep)}
+.dh-d.done i{background:var(--pink)}
+.dh-d.cours i{background:var(--paper);border:1.5px dashed var(--pink-deep)}
+.dh-d.cours.done i{background:var(--pink)}
+.dh-d.today i{outline:2.5px solid var(--pink-deep);outline-offset:1px}
+.dh-d.today small{color:var(--pink-deep)}
+.dh-leg{font-size:.75rem;color:var(--ink-soft);margin-top:.4rem}
+.dh-sec{display:flex;justify-content:space-between;align-items:baseline;font-weight:800;font-size:1rem;margin:1.3rem 0 .55rem}
+.dh-sec small{color:var(--pink-deep);font-size:.8rem}
+.dh-todo{display:grid;gap:.5rem}
+.dh-t{display:grid;grid-template-columns:1.5rem 1fr auto;gap:.7rem;align-items:center;border:0;border-radius:16px;padding:.75rem .85rem;background:var(--pink-soft);text-align:left;cursor:pointer;width:100%;color:var(--ink)}
+.dh-t .tx b{display:block;font-size:.95rem;line-height:1.25}.dh-t .tx small{font-size:.78rem;color:var(--ink-soft)}
+.dh-t .ck{width:1.5rem;height:1.5rem;border-radius:50%;border:2px solid var(--pink-deep);display:grid;place-items:center;font-size:.8rem;color:var(--paper)}
+.dh-t .go{width:1.9rem;height:1.9rem;border-radius:50%;background:var(--paper);color:var(--pink-deep);display:grid;place-items:center;font-size:.75rem}
+.dh-t.main{background:var(--pink-deep);color:var(--paper)}.dh-t.main .tx small{color:var(--paper);opacity:.92}.dh-t.main .ck{border-color:var(--paper)}
+.dh-t.ok{cursor:default;opacity:.6}.dh-t.ok .tx b{text-decoration:line-through}.dh-t.ok .ck{background:var(--pink-deep)}
+.dh-goals{display:grid;gap:.5rem;background:var(--pink-soft);border-radius:16px;padding:.8rem .95rem}
+.dh-goals > div{display:grid;grid-template-columns:minmax(0,11rem) 1fr 2.6rem;gap:.7rem;align-items:center;font-size:.85rem}
+.dh-goals .bar{margin:0}.dh-goals b{text-align:right;font-variant-numeric:tabular-nums}
+.dh-mats{display:grid;grid-template-columns:repeat(auto-fill,minmax(9.5rem,1fr));gap:.55rem}
+.dh-mat{display:grid;gap:.2rem;text-align:left;border:1.5px solid var(--pink);border-radius:16px;padding:.75rem .8rem;background:var(--paper);cursor:pointer;color:var(--ink)}
+.dh-mat b{font-size:.95rem}.dh-mat small{font-size:.75rem;color:var(--ink-soft)}.dh-mat em{font-style:normal;font-size:.72rem;font-weight:800;color:var(--pink-deep)}
+.dh-mat .bar{margin:.25rem 0}
+.cseg{display:flex;gap:.4rem;flex-wrap:wrap;margin:.2rem 0 .8rem}
+.cseg button{border:1.5px solid var(--pink);background:var(--pink-soft);border-radius:2rem;padding:.3rem .85rem;font-weight:800;font-size:.85rem;cursor:pointer;color:var(--ink)}
+.cseg button[aria-pressed="true"]{background:var(--pink-deep);border-color:var(--pink-deep);color:var(--paper)}
+.cinfo{font-size:.85rem;color:var(--ink-soft);margin:-.2rem 0 .7rem}
+.clist{display:grid}
+.crow{display:grid;grid-template-columns:2.5rem 1fr auto;gap:.75rem;align-items:center;border:0;border-bottom:1px solid #f1dfe5;background:none;padding:.75rem 0;text-align:left;cursor:pointer;width:100%;color:var(--ink)}
+.crow .cn{width:2.5rem;height:2.5rem;border-radius:12px;background:var(--pink-soft);display:grid;place-items:center;font-weight:800;color:var(--pink-deep)}
+.crow .ct b{display:block;font-size:.95rem}.crow .ct small{font-size:.78rem;color:var(--ink-soft)}
+.crow .cs{font-style:normal;font-size:.72rem;font-weight:800;border-radius:2rem;padding:.15rem .6rem;background:var(--pink);white-space:nowrap}
+.crow .cs.revise{background:var(--pink-deep);color:var(--paper)}
+.crow .cs.a-rattraper{background:var(--paper);border:1.5px dashed var(--pink-deep)}
+.crow[aria-expanded="true"]{border-bottom:0}
+.links a.primary{background:var(--pink-deep);color:var(--paper);border-color:var(--pink-deep)}
+#view-bibliotheque .legend{display:none}
+@media (max-width:700px){.dh-goals > div{grid-template-columns:minmax(0,8.5rem) 1fr 2.4rem}.subbar{margin-top:.2rem}}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -460,23 +513,25 @@ footer .ar{display:block;font-family:var(--f-ar);font-size:1.35rem;color:var(--p
     <p class="bis" lang="ar">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
     <h1>Mon carnet</h1>
     <p class="kicker"><span>Sîra · Fiqh · Tawhid · Hadiths</span></p>
-    <nav class="tabs" role="tablist" aria-label="Rubriques">
-      <button class="tab" role="tab" data-view="accueil" id="tab-accueil">Accueil</button>
-      <button class="tab" role="tab" data-view="bibliotheque" id="tab-bibliotheque">Bibliothèque</button>
-      <button class="tab" role="tab" data-view="apprendre" id="tab-apprendre">Apprendre</button>
-      <button class="tab" role="tab" data-view="assistante" id="tab-assistante" hidden>Assistante</button>
-      <button class="tab" role="tab" data-view="organisation" id="tab-organisation">Organisation</button>
-      <button class="tab" role="tab" data-view="pensees" id="tab-pensees">Mes pensées</button>
-      <button class="tab" role="tab" data-view="lexique" id="tab-lexique">Lexique</button>
-      <button class="tab" role="tab" data-view="textes" id="tab-textes">Versets &amp; hadiths</button>
+    <nav class="tabs" aria-label="Rubriques">
+      <button class="tab" type="button" data-hub="accueil">Accueil</button>
+      <button class="tab" type="button" data-hub="cours">Cours</button>
+      <button class="tab" type="button" data-hub="carnet">Carnet</button>
+      <button class="tab" type="button" data-hub="progres">Progrès</button
+    >
     </nav>
   </header>
+  <div class="subbar" id="subbar" hidden></div>
 
-  <section class="view" id="view-accueil" role="tabpanel" aria-labelledby="tab-accueil">
+  <section class="view" id="view-accueil">
     <div id="home"><p class="notice">Ton tableau de bord se charge…</p></div>
   </section>
 
-  <section class="view" id="view-bibliotheque" role="tabpanel" aria-labelledby="tab-bibliotheque" hidden>
+  <section class="view" id="view-progres" hidden>
+    <div id="progres"></div>
+  </section>
+
+  <section class="view" id="view-bibliotheque" hidden>
     <div id="shelves"><p class="notice">Ta bibliothèque se charge… Tes matières et tes cours vont apparaître ici, rangés sur une étagère par matière.</p></div>
     <div class="legend" aria-label="Légende">
       <span><i style="background:repeating-linear-gradient(135deg,#FFFDF9 0 3px,#FFF0F5 3px 6px);border-style:dashed"></i>à rattraper</span>
@@ -485,11 +540,11 @@ footer .ar{display:block;font-family:var(--f-ar);font-size:1.35rem;color:var(--p
     </div>
   </section>
 
-  <section class="view" id="view-apprendre" role="tabpanel" aria-labelledby="tab-apprendre" hidden>
+  <section class="view" id="view-apprendre" hidden>
     <div id="game"><p class="notice">Ton parcours se charge…</p></div>
   </section>
 
-  <section class="view" id="view-assistante" role="tabpanel" aria-labelledby="tab-assistante" hidden>
+  <section class="view" id="view-assistante" hidden>
     <div class="ai-intro"><b>Ton assistante d'étude</b>Elle répond <strong>uniquement à partir de tes textes</strong> : tes cours transcrits, tes leçons, et les versets et hadiths vérifiés.
       <ul><li>Elle cite toujours le passage avant d'expliquer.</li><li>Chaque citation est vérifiée mot pour mot avant d'être affichée.</li><li>Si la réponse n'est pas dans tes textes, elle te le dit et te propose de poser la question au professeur.</li><li>Elle ne donne jamais d'avis religieux personnel.</li></ul></div>
     <form class="ask" id="form-ask">
@@ -500,7 +555,7 @@ footer .ar{display:block;font-family:var(--f-ar);font-size:1.35rem;color:var(--p
     <div id="answers"></div>
   </section>
 
-  <section class="view" id="view-organisation" role="tabpanel" aria-labelledby="tab-organisation" hidden>
+  <section class="view" id="view-organisation" hidden>
     <div class="org-sec">
       <h2>Mon agenda</h2>
       <p class="lead-hand" style="text-align:left">Le jour et l'heure de chaque cours (heure de Paris).</p>
@@ -536,7 +591,7 @@ footer .ar{display:block;font-family:var(--f-ar);font-size:1.35rem;color:var(--p
     </div>
   </section>
 
-  <section class="view" id="view-pensees" role="tabpanel" aria-labelledby="tab-pensees" hidden>
+  <section class="view" id="view-pensees" hidden>
     <p class="lead-hand">Une idée, une réflexion, ou une question à poser : note-la ici.</p>
     <form class="form notes" id="form-note" style="margin-top:.9rem">
       <label class="wide">Ma pensée<textarea id="note-texte" required maxlength="2000" placeholder="ex. Ce que je veux approfondir…"></textarea></label>
@@ -548,12 +603,12 @@ footer .ar{display:block;font-family:var(--f-ar);font-size:1.35rem;color:var(--p
     <div class="notes-grid" id="notes-grid"></div>
   </section>
 
-  <section class="view" id="view-lexique" role="tabpanel" aria-labelledby="tab-lexique" hidden>
+  <section class="view" id="view-lexique" hidden>
     <div class="filters"><label class="sr" for="lex-q">Chercher un mot</label><input id="lex-q" type="search" placeholder="Chercher un mot, en français ou en arabe…"><span id="lex-chips"></span></div>
     <div class="words" id="words"></div>
   </section>
 
-  <section class="view" id="view-textes" role="tabpanel" aria-labelledby="tab-textes" hidden>
+  <section class="view" id="view-textes" hidden>
     <div class="filters" id="txt-chips"></div>
     <div class="texts" id="texts"></div>
   </section>
@@ -563,15 +618,14 @@ footer .ar{display:block;font-family:var(--f-ar);font-size:1.35rem;color:var(--p
 
 
 <nav class="bnav" aria-label="Navigation">
-  <button type="button" data-go="accueil"><span class="ic"><svg aria-hidden="true"><use href="#i-home"/></svg></span>Accueil</button>
-  <button type="button" data-go="bibliotheque"><span class="ic"><svg aria-hidden="true"><use href="#i-books"/></svg></span>Cours</button>
-  <button type="button" data-go="apprendre"><span class="ic"><svg aria-hidden="true"><use href="#i-play"/></svg></span>Apprendre</button>
-  <button type="button" data-go="organisation"><span class="ic"><svg aria-hidden="true"><use href="#i-cal"/></svg></span>Agenda</button>
-  <button type="button" data-go="plus"><span class="ic"><svg aria-hidden="true"><use href="#i-more"/></svg></span>Plus</button>
+  <button type="button" data-hub="accueil"><span class="ic"><svg aria-hidden="true"><use href="#i-home"/></svg></span>Accueil</button>
+  <button type="button" data-hub="cours"><span class="ic"><svg aria-hidden="true"><use href="#i-books"/></svg></span>Cours</button>
+  <button type="button" data-hub="carnet"><span class="ic"><svg aria-hidden="true"><use href="#i-cal"/></svg></span>Carnet</button>
+  <button type="button" data-hub="progres"><span class="ic"><svg aria-hidden="true"><use href="#i-play"/></svg></span>Progrès</button>
 </nav>
 <div class="more" id="more" data-open="false"><div class="panel" role="menu" aria-label="Plus de rubriques"></div></div>
 <script src="contenu.js?v=5b4b53cc"></script>
-<script src="espace.js?v=a5aa59c7"></script>
+<script src="espace.js?v=35e6e6fb"></script>
 <script>
 /* Stockage local + espace élève chiffré (AES-GCM, clé dérivée du mot de passe) */
 (function(){
@@ -747,26 +801,27 @@ footer .ar{display:block;font-family:var(--f-ar);font-size:1.35rem;color:var(--p
   function jourNow(){ var k=dayKey(); P.jour=P.jour||{}; P.jour[k]=P.jour[k]||{l:0,q:0,ok:0,a:0}; if ((P.jours||[]).indexOf(k)<0){ P.jours=(P.jours||[]).concat([k]).slice(-90); } return P.jour[k]; }
 
   /* ═══════════ vues ═══════════ */
-  var VIEWS = ["accueil","bibliotheque","apprendre","organisation","pensees","lexique","textes"];
+  var VIEWS = ["accueil","bibliotheque","apprendre","assistante","organisation","pensees","lexique","textes","progres"];
+  var HUBS = {accueil:["accueil"], cours:["bibliotheque","apprendre","lexique","textes","assistante"], carnet:["organisation","pensees"], progres:["progres"]};
+  var SUBLAB = {bibliotheque:"Mes cours", apprendre:"Réviser", lexique:"Mots", textes:"Textes", assistante:"Assistante", organisation:"Agenda & devoirs", pensees:"Pensées & questions"};
+  var lastIn = {}, courseFilter = null, matFilter = null;
+  function hubOf(v){ for (var k in HUBS) if (HUBS[k].indexOf(v)>=0) return k; return "accueil"; }
+  function renderSubbar(v){
+    var bar=$("subbar"), hub=hubOf(v), list=HUBS[hub].filter(function(x){ return x!=="assistante" || sampleFn; });
+    bar.textContent=""; bar.hidden = list.length<2;
+    list.forEach(function(x){ bar.appendChild(h("button",{type:"button",class:"sb","aria-pressed":x===v?"true":"false",text:SUBLAB[x]||x,onclick:function(){ show(x); }})); });
+  }
   function show(v){
+    if (HUBS[v]) v = lastIn[v] || HUBS[v][0];
     if (VIEWS.indexOf(v)<0) v="accueil";
-    VIEWS.forEach(function(x){ $("view-"+x).hidden = x!==v; $("tab-"+x).setAttribute("aria-selected", x===v?"true":"false"); });
+    var hub=hubOf(v); lastIn[hub]=v;
+    VIEWS.forEach(function(x){ var el=$("view-"+x); if (el) el.hidden = x!==v; });
+    document.querySelectorAll("[data-hub]").forEach(function(b){ var on=b.dataset.hub===hub; b.setAttribute("aria-current", on?"page":"false"); if (b.classList.contains("tab")) b.setAttribute("aria-selected", on?"true":"false"); });
+    renderSubbar(v);
     try { history.replaceState(null,"","#"+v); } catch(e){}
-    var main=["accueil","bibliotheque","apprendre","organisation"];
-    document.querySelectorAll(".bnav button").forEach(function(b){ var g=b.dataset.go; b.setAttribute("aria-current", (g===v || (g==="plus" && main.indexOf(v)<0)) ? "page" : "false"); });
-    var mo=$("more"); if (mo) mo.dataset.open="false";
     window.scrollTo(0,0);
   }
-  function buildMore(){
-    var panel=document.querySelector("#more .panel"); if (!panel) return; panel.textContent="";
-    VIEWS.forEach(function(v){ if (["accueil","bibliotheque","apprendre","organisation"].indexOf(v)>=0) return; var t=$("tab-"+v); if (!t || t.hidden) return;
-      panel.appendChild(h("button",{type:"button",role:"menuitem","aria-current":t.getAttribute("aria-selected")==="true"?"page":"false",text:t.textContent,onclick:function(){ show(v); }})); });
-  }
-  document.querySelectorAll(".bnav button").forEach(function(b){ b.addEventListener("click", function(){
-    if (b.dataset.go==="plus"){ var mo=$("more"); buildMore(); mo.dataset.open = mo.dataset.open==="true" ? "false" : "true"; }
-    else show(b.dataset.go); }); });
-  (function(){ var mo=$("more"); if (mo) mo.addEventListener("click", function(e){ if (e.target===mo) mo.dataset.open="false"; }); })();
-  document.querySelectorAll(".tab").forEach(function(t){ t.addEventListener("click", function(){ show(t.dataset.view); }); });
+  document.querySelectorAll("[data-hub]").forEach(function(b){ b.addEventListener("click", function(){ var hub=b.dataset.hub; if (hub==="cours"){ lastIn.cours = lastIn.cours || "bibliotheque"; } var cur=hubOf((location.hash||"#accueil").slice(1)); show(cur===hub ? HUBS[hub][0] : (HUBS[hub].indexOf(lastIn[hub])>=0 ? lastIn[hub] : hub)); }); });
 
   /* ═══════════ calculs ═══════════ */
   function streak(){ var set={}; (P.jours||[]).forEach(function(j){ set[j]=1; }); var d=new Date(); if (!set[dayKey(d)]) d.setDate(d.getDate()-1); var n=0; while (set[dayKey(d)]){ n++; d.setDate(d.getDate()-1); } return n; }
@@ -829,57 +884,99 @@ footer .ar{display:block;font-family:var(--f-ar);font-size:1.35rem;color:var(--p
         if (!levelOpen(l,niv)) continue; return {l:l,niv:niv,i:i,c:S.cours.find(function(x){return x.id===cids[c]})||{}}; } }
     return null;
   }
+  function daysTo(d){ return Math.round((new Date(d.getFullYear(),d.getMonth(),d.getDate())-today())/86400000); }
+  function abbr(m){ return m.court || (m.nom||"?").charAt(0).toUpperCase(); }
+  /* la liste du jour : emploi du temps + progression */
+  function todoList(){
+    var out=[], tk=dayKey(), J=(P.jour||{})[tk]||{l:0,q:0,ok:0,a:0};
+    // 1. révision avant le cours (veille et jour J)
+    nextCourses().forEach(function(n){
+      var d=daysTo(n.date), lc=lastCoursOf(n.m.id); if (d>1 || !lc) return;
+      var done=(P.avant||{})[avantKey(n)];
+      out.push({p:1, done:!!done, t:"Révision avant le cours de "+n.m.nom, s:(d===0?"ce soir ":"demain ")+(n.m.heure||"").replace(":"," h ")+" · 10 min", go:function(){ show("apprendre"); startAvant(n, lc); }});
+    });
+    // 2. nouveau cours arrivé (3 derniers jours)
+    S.cours.forEach(function(c){ if (!c.date || c.statut==="revise") return; var d=-daysTo(parseDay(c.date)); var ls=lessonsOf(c.id);
+      if (d>=0 && d<=4 && ls.length && !ls.some(function(l){return (lp(l,1).stars||0)>0})) out.push({p:2, t:"Nouveau cours : "+matName(c.matiere)+" "+c.numero, s:(c.court||c.titre||"")+" · lire les fiches", go:function(){ matFilter=c.matiere; selected=c.id; show("bibliotheque"); renderShelves(); }}); });
+    // 3. devoirs à rendre sous 2 jours
+    S.devoirs.forEach(function(dv){ if (!dv.echeance) return; var d=daysTo(parseDay(dv.echeance)); if (d<0 && dv.fait) return;
+      if (d<=2) out.push({p:3, done:!!dv.fait, t:"Devoir : "+dv.titre, s:matName(dv.matiere)+" · "+(d<0?"en retard":d===0?"pour aujourd'hui":d===1?"pour demain":"dans 2 jours"), go:function(){ show("organisation"); }}); });
+    // 4. leçon suivante
+    var ns=nextStep(), G=goals(), lec=G.list[0], left=Math.max(0,lec.n-lec.v);
+    if (J.l>0) out.push({p:4, done:true, t:J.l+" leçon"+(J.l>1?"s":"")+" faite"+(J.l>1?"s":"")+" aujourd'hui", s:"bravo, continue comme ça"});
+    if (ns) out.push({p:4, t:"Leçon "+(ns.i+1)+" · "+ns.l.titre, s:matName(ns.c.matiere)+" cours "+(ns.c.numero||"")+" · "+NIVLAB[ns.niv][0]+" · 5 min"+(left?" · encore "+left+" cette semaine":""), go:function(){ show("apprendre"); startLesson(ns.l, ns.niv); }});
+    // 5. rattrapage prévu
+    ratSchedule().filter(function(r){ return r.date<=today(); }).slice(0,1).forEach(function(r){ out.push({p:5, t:"Rattraper : "+matName(r.item.matiere)+" cours "+r.item.numero, s:"selon ton rythme de rattrapage", go:function(){ show("organisation"); }}); });
+    // 6. erreurs
+    var nErr=Object.keys(P.erreurs||{}).filter(function(k){return (P.erreurs[k].n||0)>0}).length;
+    if (nErr>=3) out.push({p:6, t:"Revoir mes "+nErr+" questions ratées", s:"3 min", go:function(){ show("apprendre"); startRevue(); }});
+    var pend=out.filter(function(x){return !x.done}).sort(function(a,b){return a.p-b.p}).slice(0,4), done=out.filter(function(x){return x.done});
+    return {pend:pend, done:done};
+  }
   function renderHome(){
     var box=$("home"); box.textContent="";
     if (!loaded.matieres){ box.appendChild(h("p",{class:"notice",text: db===false ? "Ouvre ta bibliothèque depuis ton compte Claude pour retrouver ton tableau de bord." : "Ton tableau de bord se charge…"})); return; }
-    var nv=niveau(), base=nv.cur[0], top=nv.next?nv.next[0]:base, pct=nv.next?Math.round(((P.xp||0)-base)/(top-base)*100):100, sk=streak();
-    var hero=h("div",{class:"hero"});
-    hero.appendChild(h("div",{class:"hero-top"},[h("div",{class:"lvl"},[ico(nv.cur[2])]),
-      h("div",{},[h("div",{class:"nm"},["Niveau "+(nv.idx+1)+" · "+nv.cur[1], h("span",{text:(P.xp||0)+" XP"+(nv.next?" · encore "+(top-(P.xp||0))+" pour « "+nv.next[1]+" »":"")})]),
-        h("div",{class:"bar",role:"progressbar","aria-valuemin":"0","aria-valuemax":"100","aria-valuenow":String(pct)},[h("i",{style:"width:"+pct+"%"})])]),
-      h("div",{class:"fl","aria-label":sk+" jours d'affilée"},[ico("flame"), h("b",{text:String(sk)}), h("span",{text:"jour"+(sk>1?"s":"")})])]));
-    // à faire maintenant
-    var nc=nextCourses(), ns=nextStep(), todo=h("div",{class:"todo"});
-    var avantN=null; if (nc.length){ var n0=nc[0], d0=Math.round((new Date(n0.date.getFullYear(),n0.date.getMonth(),n0.date.getDate())-today())/86400000), lc0=lastCoursOf(n0.m.id); if (lc0 && d0<=1 && !(P.avant||{})[avantKey(n0)]) avantN={n:n0,c:lc0,d:d0}; }
-    if (avantN){
-      todo.appendChild(h("div",{class:"lab",text:"À faire maintenant"}));
-      todo.appendChild(h("div",{class:"what"},["Révision avant le cours de "+avantN.n.m.nom, h("span",{text:"10 minutes pour arriver prête "+(avantN.d===0?"ce soir":"demain")})]));
-      todo.appendChild(h("button",{class:"btn",type:"button",text:"Commencer",onclick:function(){ show("apprendre"); startAvant(avantN.n, avantN.c); }}));
-    } else if (ns){
-      todo.appendChild(h("div",{class:"lab",text:"Continuer"}));
-      todo.appendChild(h("div",{class:"what"},["Leçon "+(ns.i+1)+" · "+ns.l.titre, h("span",{text:matName(ns.c.matiere)+" · niveau "+NIVLAB[ns.niv][0]+" · "+quizOf(ns.l,ns.niv).length+" questions"})]));
-      todo.appendChild(h("button",{class:"btn",type:"button",text:"C'est parti",onclick:function(){ show("apprendre"); startLesson(ns.l, ns.niv); }}));
-    } else {
-      todo.appendChild(h("div",{class:"lab",text:"Bravo"}));
-      todo.appendChild(h("div",{class:"what"},["Tout est validé pour l'instant", h("span",{text:"Refais le grand quiz ou revois tes erreurs en attendant le prochain cours."})]));
-    }
-    hero.appendChild(todo);
-    if (nc.length){
-      var n=nc[0], days=Math.round((new Date(n.date.getFullYear(),n.date.getMonth(),n.date.getDate())-today())/86400000);
-      var when = days===0 ? "aujourd'hui" : days===1 ? "demain" : "dans "+days+" jours";
-      var lc=lastCoursOf(n.m.id), done=(P.avant||{})[avantKey(n)];
-      hero.appendChild(h("div",{class:"nextrow"},[h("div",{},[h("b",{text:"Prochain cours : "+n.m.nom}), h("span",{class:"when2",text:JOURS[n.date.getDay()]+" à "+(n.m.heure||"20:00").replace(":"," h ")+" · "+when})]),
-        (lc && days<=3 && !avantN) ? h("button",{class:"btn sm",type:"button",text: done ? "Revoir ✓" : "Avant le cours",onclick:function(){ show("apprendre"); startAvant(n, lc); }}) : null]));
-    } else hero.appendChild(h("div",{class:"nextrow"},[h("span",{text:"Ajoute le jour de tes cours pour les voir ici."}), h("button",{class:"linkbtn",type:"button",text:"Agenda →",onclick:function(){ show("organisation"); }})]));
-    box.appendChild(hero);
+    var sk=streak(), nv=niveau();
+    // en-tête de jeu
+    box.appendChild(h("div",{class:"dh-top"},[h("p",{class:"dh-hello",text:"Salam, voici ta journée"}),
+      h("div",{class:"dh-stats"},[h("span",{class:"dh-st",title:sk+" jours d'affilée"},[ico("flame"), h("b",{text:String(sk)})]), h("span",{class:"dh-st",title:"Niveau "+(nv.idx+1)+" · "+nv.cur[1]},[ico("star"), h("b",{text:String(P.xp||0)})])])]));
+    // la semaine
+    var wd=weekDays(), J=P.jour||{}, tk=dayKey(), L="LMMJVSD", wk=h("div",{class:"dh-week",role:"list","aria-label":"Ma semaine"}), seen={};
+    wd.forEach(function(d,i){
+      var j=J[d], act=j && ((j.l||0)+(j.q||0)+(j.a||0))>0, dow=parseDay(d).getDay();
+      var cs=S.matieres.filter(function(m){ return m.jour!==undefined && m.jour!==null && m.jour!=="" && +m.jour===dow; });
+      var lab=cs.map(abbr).join(""); cs.forEach(function(m){ seen[m.id]=m; });
+      wk.appendChild(h("div",{class:"dh-d"+(act?" done":"")+(d===tk?" today":"")+(cs.length?" cours":""),role:"listitem","aria-label":fmtDay(d)+(act?", étudié":"")+(cs.length?", cours de "+cs.map(function(m){return m.nom}).join(" et "):"")},
+        [h("small",{text:L[i]}), h("i",{},[act?ico("flame"):h("span",{text:lab|| (d===tk?"•":"")})])]));
+    });
+    box.appendChild(wk);
+    var legend=Object.keys(seen).map(function(k){ var m=seen[k]; return abbr(m)+" "+m.nom+" "+JOURS[+m.jour].slice(0,3)+". "+(m.heure||"").replace(":"," h "); }).join(" · ");
+    box.appendChild(h("p",{class:"dh-leg",text: legend || "Ajoute le jour de tes cours dans Carnet pour les voir ici."}));
+    // à faire
+    var T=todoList(), n=T.pend.length+T.done.length;
+    box.appendChild(h("div",{class:"dh-sec"},[h("span",{text:"À faire aujourd'hui"}), n?h("small",{text:T.done.length+"/"+n}):null]));
+    var tl=h("div",{class:"dh-todo"});
+    if (!n) tl.appendChild(h("p",{class:"empty2",text:"Rien d'urgent aujourd'hui. Profites-en pour avancer une leçon !"}));
+    T.pend.forEach(function(x,i){ tl.appendChild(h("button",{type:"button",class:"dh-t"+(i===0?" main":""),onclick:x.go},[h("span",{class:"ck","aria-hidden":"true"}), h("span",{class:"tx"},[h("b",{text:x.t}), h("small",{text:x.s})]), h("span",{class:"go","aria-hidden":"true",text:"▶"})])); });
+    T.done.forEach(function(x){ tl.appendChild(h("div",{class:"dh-t ok"},[h("span",{class:"ck","aria-hidden":"true",text:"✓"}), h("span",{class:"tx"},[h("b",{text:x.t}), h("small",{text:x.s})])])); });
+    box.appendChild(tl);
+    // objectifs de la semaine
+    var G=goals(), gw=h("div",{class:"dh-goals"});
+    G.list.forEach(function(x){ var p=Math.min(100,Math.round(x.v/Math.max(1,x.n)*100)); gw.appendChild(h("div",{},[h("span",{text:x.t}), h("span",{class:"bar"},[h("i",{style:"width:"+p+"%"})]), h("b",{text:Math.min(x.v,x.n)+"/"+x.n})])); });
+    box.appendChild(h("div",{class:"dh-sec"},[h("span",{text:"Cette semaine"}), h("button",{type:"button",class:"linkbtn",text:"objectifs ›",onclick:function(){ editGoals=true; show("progres"); renderProgres(); }})]));
+    box.appendChild(gw);
+    // matières
+    box.appendChild(h("div",{class:"dh-sec"},[h("span",{text:"Mes matières"}), h("button",{type:"button",class:"linkbtn",text:"tout voir ›",onclick:function(){ show("bibliotheque"); }})]));
+    var mg=h("div",{class:"dh-mats"});
+    ordered().forEach(function(m){
+      var cs=S.cours.filter(function(c){return c.matiere===m.id}), ls=[]; cs.forEach(function(c){ ls=ls.concat(lessonsOf(c.id)); });
+      var tot=0, ok=0; ls.forEach(function(l){ [1,2,3].forEach(function(k){ if (quizOf(l,k).length){ tot++; if ((lp(l,k).stars||0)>0) ok++; } }); });
+      var p=tot?Math.round(ok/tot*100):0, rat=cs.filter(function(c){return c.statut==="a-rattraper"}).length;
+      mg.appendChild(h("button",{type:"button",class:"dh-mat",onclick:function(){ matFilter=m.id; selected=null; show("bibliotheque"); renderShelves(); }},[
+        h("b",{text:m.nom}), h("small",{text:cs.length+" cours · "+p+" %"}), h("span",{class:"bar"},[h("i",{style:"width:"+p+"%"})]),
+        h("em",{text: !cs.length ? "bientôt" : rat ? rat+" à rattraper" : "à jour"})]));
+    });
+    box.appendChild(mg);
+  }
 
+  /* ═══════════ PROGRÈS ═══════════ */
+  function renderProgres(){
+    var box=$("progres"); if (!box) return; box.textContent="";
+    if (!loaded.matieres){ box.appendChild(h("p",{class:"notice",text:"Tes progrès se chargent…"})); return; }
+    renderHud(box);
     var dash=h("div",{class:"dash"});
-    // chiffres clés
     var tq=0, tok=0; Object.keys(P.jour||{}).forEach(function(k){ tq+=P.jour[k].q||0; tok+=P.jour[k].ok||0; });
     var allL=S.lecons.filter(function(l){return S.cours.some(function(c){return c.id===l.cours})}), lok=allL.filter(function(l){return (lp(l,1).stars||0)>0}).length;
     function kpi(v,l){ return h("div",{class:"kpi"},[h("b",{text:String(v)}), h("span",{text:l})]); }
     dash.appendChild(h("div",{class:"kpis k3"},[kpi(lok+"/"+allL.length,"leçons validées"), kpi(tq?Math.round(tok/tq*100)+" %":"—","bonnes réponses"), kpi(tq,"questions faites")]));
-    // objectif
     var G=goals(), gl=h("ul");
     G.list.forEach(function(x){ gl.appendChild(h("li",{class:x.v>=x.n?"ok":""},[h("span",{text:x.t}), h("b",{text:Math.min(x.v,x.n)+"/"+x.n})])); });
-    var gcard=h("div",{class:"card2"},[h("h3",{},["Ma semaine", h("button",{type:"button",text:editGoals?"Fermer":"Modifier",onclick:function(){ editGoals=!editGoals; renderHome(); }})]),
-      h("div",{class:"goal"},[ring(G.pct), gl])]);
+    var gcard=h("div",{class:"card2"},[h("h3",{},["Mes objectifs de la semaine", h("button",{type:"button",text:editGoals?"Fermer":"Modifier",onclick:function(){ editGoals=!editGoals; renderProgres(); }})]), h("div",{class:"goal"},[ring(G.pct), gl])]);
     if (editGoals){
       var ob=P.objectifs||{lecons:3,jours:4};
-      function num(id,val,key){ return h("input",{type:"number",id:id,min:"1",max:"30",value:String(val),onchange:function(e){ var v=Math.max(1,Math.min(30,+e.target.value||1)); P.objectifs=Object.assign({},P.objectifs,{}); P.objectifs[key]=v; saveP(); renderHome(); }}); }
+      var num=function(id,val,key){ return h("input",{type:"number",id:id,min:"1",max:"30",value:String(val),onchange:function(e){ var v=Math.max(1,Math.min(30,+e.target.value||1)); P.objectifs=Object.assign({},P.objectifs,{}); P.objectifs[key]=v; saveP(); renderProgres(); renderHome(); }}); };
       gcard.appendChild(h("div",{class:"goal-edit"},[h("label",{"for":"g-lec",text:"Leçons par semaine"}), num("g-lec",ob.lecons,"lecons"), h("label",{"for":"g-jours",text:"Jours d'étude par semaine"}), num("g-jours",ob.jours,"jours")]));
     }
-    // matières
     var mat=h("div",{class:"mat"});
     ordered().forEach(function(m){
       var ls=[]; S.cours.filter(function(c){return c.matiere===m.id}).forEach(function(c){ ls=ls.concat(lessonsOf(c.id)); });
@@ -887,30 +984,16 @@ footer .ar{display:block;font-family:var(--f-ar);font-size:1.35rem;color:var(--p
       var p2=tot?Math.round(ok/tot*100):0;
       mat.appendChild(h("div",{},[h("span",{text:m.nom}), h("span",{class:"bar"},[h("i",{style:"width:"+p2+"%"})]), h("b",{text:tot?p2+" %":"—"})]));
     });
-    var mcard=h("div",{class:"card2"},[h("h3",{text:"Par matière"}), mat, h("p",{class:"empty2",style:"margin-top:.5rem;font-size:.8rem",text:"Niveaux validés : Découverte, Approfondi, Expert."})]);
-    dash.appendChild(h("div",{class:"dash-2"},[gcard, mcard]));
-    // à venir + à revoir
-    var ul2=h("ul",{class:"list2"}), soon=[], lim=addDays(today(),7);
-    S.devoirs.filter(function(d){return !d.fait && d.echeance && parseDay(d.echeance)<=lim}).forEach(function(d){ soon.push({d:d.echeance,t:d.titre,s:"devoir · "+matName(d.matiere)}); });
-    S.evenements.filter(function(e){ var x=parseDay(e.date); return x && x>=today() && x<=addDays(today(),14); }).forEach(function(e){ soon.push({d:e.date,t:e.titre,s:"rendez-vous · "+matName(e.matiere)}); });
-    ratSchedule().slice(0,2).forEach(function(r){ soon.push({d:dayKey(r.date),t:"Rattraper : "+matName(r.item.matiere)+" cours "+r.item.numero,s:"rattrapage"}); });
-    var qs=S.notes.filter(function(n){return n.question && !n.repondu}).length;
-    soon.sort(function(a,b){return a.d.localeCompare(b.d)});
-    if (!soon.length && !qs) ul2.appendChild(h("li",{},[h("span",{class:"empty2",text:"Rien de prévu cette semaine."})]));
-    soon.slice(0,5).forEach(function(x){ ul2.appendChild(h("li",{},[h("span",{},[x.t, h("span",{class:"sub2",text:x.s})]), h("b",{text:fmtDay(x.d)})])); });
-    if (qs) ul2.appendChild(h("li",{},[h("span",{},[qs+" question"+(qs>1?"s":"")+" à poser", h("span",{class:"sub2",text:"dans Mes pensées"})]), h("button",{class:"btn sm",type:"button",text:"Voir",onclick:function(){ noteFilter="q"; show("pensees"); renderNotes(); }})]));
+    dash.appendChild(h("div",{class:"dash-2"},[gcard, h("div",{class:"card2"},[h("h3",{text:"Par matière"}), mat, h("p",{class:"empty2",style:"margin-top:.5rem;font-size:.8rem",text:"Niveaux validés : Découverte, Approfondi, Expert."})])]));
     var err=Object.keys(P.erreurs||{}).map(function(k){ return Object.assign({k:k},P.erreurs[k]); }).filter(function(e){return e.n>0}).sort(function(a,b){return b.n-a.n}).slice(0,3);
     var ul1=h("ul",{class:"list2"});
-    if (!err.length) ul1.appendChild(h("li",{},[h("span",{class:"empty2",text:"Aucune erreur à revoir. Les questions ratées apparaîtront ici."})]));
+    if (!err.length) ul1.appendChild(h("li",{},[h("span",{class:"empty2",text:"Aucune erreur à revoir."})]));
     err.forEach(function(e){ ul1.appendChild(h("li",{},[h("span",{},[e.q||"", h("span",{class:"sub2",text:"ratée "+e.n+" fois"})])])); });
-    var c1=h("div",{class:"card2"},[h("h3",{},["À revoir", err.length?h("button",{type:"button",text:"Tout revoir",onclick:function(){ show("apprendre"); startRevue(); }}):null]), ul1]);
-    dash.appendChild(h("div",{class:"dash-2"},[h("div",{class:"card2"},[h("h3",{text:"Cette semaine"}), ul2]), c1]));
-    // régularité
     var heat=h("div",{class:"heat","aria-label":"Jours d'étude des 8 dernières semaines"}), start=addDays(monday(),-49), tk=dayKey();
     for (var i=0;i<56;i++){ var d=dayKey(addDays(start,i)), j=(P.jour||{})[d], sc=j?(j.l||0)*3+(j.q||0)+(j.a||0)*3:0, lv=sc===0?0:sc<6?1:sc<15?2:3;
       heat.appendChild(h("i",{class:"d"+lv+(d===tk?" today":""),title:fmtDay(d)+(sc?" · "+(j.q||0)+" questions":"")})); }
-    dash.appendChild(h("div",{class:"card2"},[h("h3",{text:"Ma régularité · 8 semaines"}), heat, h("div",{class:"heat-legend",style:"max-width:17rem;margin-inline:auto"},[h("span",{text:"il y a 8 semaines"}), h("span",{text:"aujourd'hui"})])]));
-    // badges
+    dash.appendChild(h("div",{class:"dash-2"},[h("div",{class:"card2"},[h("h3",{},["À revoir", err.length?h("button",{type:"button",text:"Tout revoir",onclick:function(){ show("apprendre"); startRevue(); }}):null]), ul1]),
+      h("div",{class:"card2"},[h("h3",{text:"Ma régularité · 8 semaines"}), heat, h("div",{class:"heat-legend",style:"max-width:17rem;margin-inline:auto"},[h("span",{text:"il y a 8 semaines"}), h("span",{text:"aujourd'hui"})])])]));
     var nb=(P.badges||[]).length, bd=h("div",{class:"badges row"});
     BADGES.forEach(function(b){ var on=(P.badges||[]).indexOf(b[0])>=0; bd.appendChild(h("div",{class:"badge"+(on?" on":""),title:b[1]},[h("div",{class:"medal"},[ico(b[2])]), b[1]])); });
     dash.appendChild(h("div",{class:"card2"},[h("h3",{text:"Mes badges · "+nb+"/"+BADGES.length}), bd]));
@@ -921,27 +1004,33 @@ footer .ar{display:block;font-family:var(--f-ar);font-size:1.35rem;color:var(--p
   function renderShelves(){
     var box=$("shelves"); box.textContent="";
     if (!loaded.matieres){ box.appendChild(h("p",{class:"notice",text: db===false ? "Ouvre ta bibliothèque depuis ton compte Claude pour retrouver tes cours." : "Ta bibliothèque se charge…"})); return; }
-    ordered().forEach(function(m){
-      var cours=S.cours.filter(function(c){return c.matiere===m.id}).sort(byNum);
-      var head=h("div",{class:"shelf-head"},[h("h2",{},[m.nom||"", m.arabe?h("span",{class:"ar",lang:"ar",text:m.arabe}):null]), (m.jour!==undefined&&m.jour!==null&&m.jour!=="")?h("span",{class:"when",text:JOURS[+m.jour]+" · "+(m.heure||"").replace(":"," h ")}):null]);
-      var books=h("div",{class:"books",role:"list","aria-label":"Cours de "+(m.nom||"")});
-      cours.forEach(function(c){
-        var st=c.statut==="revise"?"s-revise":c.statut==="fiches-pretes"?"s-fiches":"s-rattraper", hgt=10.5+((c.numero||1)*37%5)*.6;
-        books.appendChild(h("button",{class:"spine "+st,role:"listitem",style:"height:"+hgt+"rem","aria-pressed":selected===c.id?"true":"false","aria-label":"Cours "+(c.numero||"")+" : "+(c.titre||""),onclick:function(){ selected=selected===c.id?null:c.id; renderShelves(); }},
-          [h("span",{class:"no",text:String(c.numero||"?")}), h("span",{class:"t",text:c.court||c.titre||""})]));
-      });
-      books.appendChild(h("div",{class:"spine add",style:"height:10.5rem","aria-hidden":"true"},[h("span",{class:"t",text:"cours suivant"})]));
-      var shelf=h("div",{class:"shelf"},[head, m.livre?h("p",{class:"shelf-book",text:m.livre}):null, books, h("div",{class:"board"})]);
-      if (!cours.length) shelf.appendChild(h("p",{class:"lead-hand",style:"margin-top:.7rem",text:"Le premier module de "+(m.nom||"cette matière")+" arrive bientôt, in shâ' Allâh."}));
-      var sel=cours.find(function(c){return c.id===selected}); if (sel) shelf.appendChild(courseCard(sel));
-      box.appendChild(shelf);
+    var mats=ordered(); if (!matFilter || !mats.some(function(m){return m.id===matFilter})) matFilter = mats.length ? mats[0].id : null;
+    var seg=h("div",{class:"cseg",role:"group","aria-label":"Matière"});
+    mats.forEach(function(m){ seg.appendChild(h("button",{type:"button","aria-pressed":m.id===matFilter?"true":"false",text:m.nom,onclick:function(){ matFilter=m.id; selected=null; renderShelves(); }})); });
+    box.appendChild(seg);
+    var m=mats.find(function(x){return x.id===matFilter}); if (!m) return;
+    var info=[m.livre, (m.jour!==undefined&&m.jour!==null&&m.jour!=="") ? JOURS[+m.jour]+" · "+(m.heure||"").replace(":"," h ") : null].filter(Boolean).join(" · ");
+    if (info) box.appendChild(h("p",{class:"cinfo",text:info}));
+    var cours=S.cours.filter(function(c){return c.matiere===m.id}).sort(byNum);
+    if (!cours.length){ box.appendChild(h("p",{class:"notice",text:"Aucun cours pour l'instant dans cette matière."})); return; }
+    var LAB={"revise":"révisé","fiches-pretes":"fiches prêtes","a-rattraper":"à rattraper"};
+    var ul=h("div",{class:"clist"});
+    cours.forEach(function(c){
+      var ls=lessonsOf(c.id), done=ls.filter(function(l){return (lp(l,1).stars||0)>0}).length;
+      var row=h("button",{type:"button",class:"crow","aria-expanded":selected===c.id?"true":"false",onclick:function(){ selected=selected===c.id?null:c.id; renderShelves(); }},[
+        h("span",{class:"cn",text:String(c.numero||"?")}),
+        h("span",{class:"ct"},[h("b",{text:c.court||c.titre||""}), h("small",{text:[c.date?fmtDay(c.date):null, ls.length?done+"/"+ls.length+" leçons":null].filter(Boolean).join(" · ")})]),
+        h("em",{class:"cs "+(c.statut||"a-rattraper"),text:LAB[c.statut]||"à rattraper"})]);
+      ul.appendChild(row);
+      if (selected===c.id) ul.appendChild(courseCard(c));
     });
+    box.appendChild(ul);
   }
   function courseCard(c){
     var links=h("div",{class:"links"});
     if (c.fiches) links.appendChild(window.carnetLink(c.fiches,"Ouvrir les fiches"));
     if (c.transcription) links.appendChild(window.carnetLink(c.transcription,"Cours détaillé + transcription"));
-    if (lessonsOf(c.id).length) links.appendChild(h("a",{href:"#apprendre",text:"Jouer le parcours",onclick:function(e){ e.preventDefault(); show("apprendre"); }}));
+    if (lessonsOf(c.id).length) links.insertBefore(h("a",{href:"#apprendre",class:"primary",text:"Réviser ce cours",onclick:function(e){ e.preventDefault(); courseFilter=c.id; show("apprendre"); renderGame(); }}), links.firstChild);
     var seg=h("div",{class:"seg",role:"group","aria-label":"Avancement"});
     STATUTS.forEach(function(s){ seg.appendChild(h("button",{type:"button","aria-pressed":c.statut===s[0]?"true":"false",disabled:!db||canWrite===false,text:s[1],onclick:function(){ if (c.statut===s[0]) return; writeShared(function(){ return db.doc("cours/"+c.id).update({statut:s[0]}); }); }})); });
     var meta=[c.date?fmtDay(c.date):null, c.duree, c.pages?c.pages+" fiches":null].filter(Boolean).join(" · ");
@@ -962,6 +1051,11 @@ footer .ar{display:block;font-family:var(--f-ar);font-size:1.35rem;color:var(--p
     if (!loaded.lecons){ box.appendChild(h("p",{class:"notice",text: db===false?"Ouvre ta bibliothèque depuis ton compte Claude pour jouer.":"Ton parcours se charge…"})); return; }
     renderHud(box);
     var cids=[]; S.lecons.forEach(function(l){ if (cids.indexOf(l.cours)<0) cids.push(l.cours); });
+    var fseg=h("div",{class:"cseg",role:"group","aria-label":"Cours à réviser"});
+    fseg.appendChild(h("button",{type:"button","aria-pressed":!courseFilter?"true":"false",text:"Tous",onclick:function(){ courseFilter=null; renderGame(); }}));
+    cids.forEach(function(cid){ var c=S.cours.find(function(x){return x.id===cid})||{}; fseg.appendChild(h("button",{type:"button","aria-pressed":courseFilter===cid?"true":"false",text:(matName(c.matiere)||"")+" "+(c.numero||""),onclick:function(){ courseFilter=cid; renderGame(); }})); });
+    if (cids.length>1) box.appendChild(fseg);
+    if (courseFilter && cids.indexOf(courseFilter)>=0) cids=[courseFilter]; else courseFilter=null;
     if (!cids.length){ box.appendChild(h("p",{class:"notice",text:"Les premiers modules arrivent bientôt."})); return; }
     cids.forEach(function(cid){
       var c=S.cours.find(function(x){return x.id===cid})||{titre:cid}, ls=lessonsOf(cid);
@@ -1330,13 +1424,13 @@ footer .ar{display:block;font-family:var(--f-ar);font-size:1.35rem;color:var(--p
   }
   $("lex-q").addEventListener("input", renderLexique);
 
-  function render(){ fillSelects(); renderHome(); renderShelves(); renderGame(); renderOrga(); renderDevoirs(); renderNotes(); renderLexique(); renderTextes(); }
+  function render(){ fillSelects(); renderHome(); renderProgres(); renderShelves(); renderGame(); renderOrga(); renderDevoirs(); renderNotes(); renderLexique(); renderTextes(); }
 
   /* ═══════════ démarrage ═══════════ */
   show((location.hash||"").replace("#",""));
   loadLocalP(); render();
   if (!window.carnetRT || !window.carnetRT.use){ db=false; canWrite=false; useLocal(); return; }
-  window.carnetRT.use("sample").then(function(s){ sampleFn=s||null; }, function(){ sampleFn=null; });
+  window.carnetRT.use("sample").then(function(s){ sampleFn=s||null; renderSubbar((location.hash||"#accueil").slice(1)); }, function(){ sampleFn=null; });
   window.carnetRT.use("db").then(function(d){
     if (!d){ db=false; canWrite=false; useLocal(); return; }
     db=d;
