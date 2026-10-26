@@ -38,6 +38,7 @@
 .docview{display:flex;flex-direction:column;padding:0;background:var(--paper);place-items:stretch}
 .docbar{display:flex;justify-content:space-between;align-items:center;gap:.6rem;padding:calc(.6rem + env(safe-area-inset-top,0px)) 16px .6rem;border-bottom:1.5px solid var(--pink);background:var(--pink-soft)}
 .docframe{flex:1;width:100%;border:0;background:#fff}
+.lk.full{background:var(--desk);z-index:200}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -625,7 +626,7 @@ nav.tabs .tab[aria-selected="true"]{background:var(--pink-deep);color:var(--pape
 </nav>
 <div class="more" id="more" data-open="false"><div class="panel" role="menu" aria-label="Plus de rubriques"></div></div>
 <script src="contenu.js?v=5b4b53cc"></script>
-<script src="espace.js?v=307d4866"></script>
+<script src="espace.js?v=2dcfcebd"></script>
 <script>
 /* Stockage local + espace élève chiffré (AES-GCM, clé dérivée du mot de passe) */
 (function(){
@@ -646,7 +647,8 @@ nav.tabs .tab[aria-selected="true"]{background:var(--pink-deep);color:var(--pape
     window.SEED_DOCS=p.docs||{}; window.ELEVE=true;
   }
   var stored=null; try{ stored=localStorage.getItem(KK); }catch(e){}
-  var ready = (stored && window.ESPACE && window.crypto && crypto.subtle)
+  if (window.OUVERT){ merge(window.OUVERT); window.ELEVE=false; }
+  var ready = window.OUVERT ? Promise.resolve() : (stored && window.ESPACE && window.crypto && crypto.subtle)
     ? crypto.subtle.importKey("raw", b64(stored), {name:"AES-GCM"}, false, ["decrypt"]).then(decryptWith).then(merge).catch(function(){ try{ localStorage.removeItem(KK); }catch(e){} })
     : Promise.resolve();
   window.carnetUnlock=function(pw){
@@ -705,26 +707,23 @@ nav.tabs .tab[aria-selected="true"]{background:var(--pink-deep);color:var(--pape
     document.body.appendChild(ov); document.body.style.overflow="hidden";
   }
   /* en-tête : espace élève */
-  function unlockDialog(){
+  function lockScreen(){
     var msg=el("p",{class:"lk-msg",role:"status"}), inp=el("input",{type:"password",id:"lk-pw",autocomplete:"current-password",placeholder:"mot de passe"});
-    var go=el("button",{type:"submit",class:"btn",text:"Ouvrir mon espace"});
+    var go=el("button",{type:"submit",class:"btn",text:"Ouvrir mon carnet"});
     var form=el("form",{class:"lk-form",onsubmit:function(e){ e.preventDefault(); go.disabled=true; msg.textContent="Vérification…";
       window.carnetUnlock(inp.value.trim()).catch(function(){ go.disabled=false; msg.textContent="Mot de passe incorrect."; inp.select(); }); }},
       [el("label",{"for":"lk-pw",text:"Mot de passe"}), inp, go, msg]);
-    var ov=el("div",{class:"lk",role:"dialog","aria-modal":"true","aria-label":"Espace élève",onclick:function(e){ if (e.target===ov) ov.remove(); }},[
-      el("div",{class:"lk-card"},[el("h2",{text:"Espace élève"}), el("p",{text:"Tes cours de l'institut sont protégés par un mot de passe. Tu ne le tapes qu'une fois sur cet appareil."}), form,
-        el("button",{type:"button",class:"linkbtn",text:"Annuler",onclick:function(){ ov.remove(); }})])]);
+    var ov=el("div",{class:"lk full",role:"dialog","aria-modal":"true","aria-label":"Mon carnet"},[
+      el("div",{class:"lk-card"},[el("h2",{text:"Mon carnet"}), el("p",{text:"Ce carnet est privé. Entre ton mot de passe : tu ne le taperas qu'une fois sur cet appareil."}), form])]);
     document.body.appendChild(ov); setTimeout(function(){ inp.focus(); },50);
   }
   ready.then(function(){
+    if (window.OUVERT) return;
     function go(){
-      var h1=document.querySelector("header h1"), hd=document.querySelector("header"); if (!hd) return;
-      if (window.ELEVE){ h1.textContent="Ma bibliothèque"; document.title="Ma bibliothèque · Religion"; var k=document.querySelector(".kicker span"); if (k) k.textContent="Institut El Ihsan · espace élève"; }
-      var pill=el("button",{type:"button",class:"lk-pill"+(window.ELEVE?" on":""),text:window.ELEVE?"Espace élève ✓":"Espace élève",onclick:function(){
-        if (window.ELEVE){ if (confirmBox()) window.carnetLogout(); } else unlockDialog(); }});
-      hd.appendChild(pill);
+      if (!window.ELEVE){ lockScreen(); return; }
+      var h1=document.querySelector("header h1"); if (h1) h1.textContent="Mon carnet";
+      var k=document.querySelector(".kicker span"); if (k) k.textContent="Institut Al Ihsan";
     }
-    function confirmBox(){ return window.confirm("Quitter ton espace élève sur cet appareil ? Il faudra retaper le mot de passe."); }
     if (document.readyState==="loading") document.addEventListener("DOMContentLoaded", go); else go();
   });
 })();
