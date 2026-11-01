@@ -12,7 +12,8 @@ Lis tout ce fichier avant de commencer. Règles absolues :
 ## 1. Choisir les cours de cette exécution
 `outils/etat.json` : `faits` (déjà traités) et `rattrapage` (file d'attente). À chaque exécution :
 1. le **nouveau cours** de la matière du jour (vendredi → Sîra, lundi → Tawhid + Fiqh), s'il est sur la plateforme et pas dans `faits` ;
-2. **plus 1 cours** pris en tête de `rattrapage` (s'il n'est pas déjà fait).
+2. **plus les cours de rattrapage** demandés par la tâche (lundi : 2, vendredi : 1), pris en tête de `rattrapage` (sauf s'ils sont déjà faits).
+   Récupère tous les liens audio dès le début : ils expirent après 6 h.
 
 ## 2. Récupérer l'audio (navigateur intégré de l'ordinateur de Chacha)
 - Sîra : https://etudiant.institutalihsan.fr/espaceetudiant/submenu/option_1ere%20ann%C3%A9e_Sira
